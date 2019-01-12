@@ -70,11 +70,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					模态框（Modal）标题
+					登录
 				</h4>
 			</div>
 			<div class="modal-body">
-				在这里添加一些文本
+				账号:<input type="text" name="account" id="account" /><br />
+				密码:<input type="password" name="password" id="password" /><br />
+				<input type="submit" value="登录" />
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭

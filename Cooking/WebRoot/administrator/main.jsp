@@ -21,6 +21,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 var _menus = {"menus":[{"menuid":"8","icon":"icon-sys","menuname":"用户管理",
 							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"demo.html"},
 								]
+						},{"menuid":"1","icon":"icon-sys","menuname":"图片管理",
+							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
+									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
+									{"menuname":"鲁菜","icon":"icon-users","url":"demo2.html"},
+									{"menuname":"闽菜","icon":"icon-role","url":"demo2.html"},
+									{"menuname":"苏菜","icon":"icon-set","url":"demo.html"},
+									{"menuname":"湘菜","icon":"icon-log","url":"demo.html"},
+									{"menuname":"粤菜","icon":"icon-log","url":"demo.html"},
+									{"menuname":"浙菜","icon":"icon-log","url":"demo.html"},
+								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"中餐",
 							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
 									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
