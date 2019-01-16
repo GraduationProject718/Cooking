@@ -59,8 +59,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li>热门</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">内容1</div>
-	    <div class="layui-tab-item">内容2</div>
+	    <div class="layui-tab-item layui-show">
+	    	<div class="layui-row layui-col-space10">
+			  <div class="layui-col-md4">
+			    1/3
+			  </div>
+			  <div class="layui-col-md4">
+			    1/3
+			  </div>
+			  <div class="layui-col-md4">
+			    1/3
+			  </div>
+			</div>
+	    </div>
+	    <div class="layui-tab-item">1*3</div>
 	  </div>
 	</div>
 	 
@@ -77,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">中餐</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">内容1</div>
+	    <div class="layui-tab-item layui-show">2*3</div>
 	  </div>
 	</div>
 	 
@@ -96,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">西餐</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">内容1</div>
+	    <div class="layui-tab-item layui-show">2*3</div>
 	  </div>
 	</div>
 	<script>
@@ -113,8 +125,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li>甜点</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">内容1</div>
-	    <div class="layui-tab-item">内容2</div>
+	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item">2*3</div>
 	  </div>
 	</div>
 	 

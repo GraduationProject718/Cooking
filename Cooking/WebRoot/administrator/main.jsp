@@ -19,20 +19,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <script type="text/javascript">
 	 var _menus = {"menus":[{"menuid":"8","icon":"icon-sys","menuname":"用户管理",
-							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"demo.html"},
+							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"userManagement.jsp"},
 								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"图片管理",
 							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
-									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
-									{"menuname":"鲁菜","icon":"icon-users","url":"demo2.html"},
-									{"menuname":"闽菜","icon":"icon-role","url":"demo2.html"},
-									{"menuname":"苏菜","icon":"icon-set","url":"demo.html"},
-									{"menuname":"湘菜","icon":"icon-log","url":"demo.html"},
-									{"menuname":"粤菜","icon":"icon-log","url":"demo.html"},
-									{"menuname":"浙菜","icon":"icon-log","url":"demo.html"},
+									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"}
 								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"中餐",
-							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
+							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"recipe.jsp"},
 									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
 									{"menuname":"鲁菜","icon":"icon-users","url":"demo2.html"},
 									{"menuname":"闽菜","icon":"icon-role","url":"demo2.html"},
@@ -194,8 +188,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </table>
             </div>
             <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
-                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >
-                    确定</a> <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+                <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >确定</a>
+               <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
             </div>
         </div>
     </div>
