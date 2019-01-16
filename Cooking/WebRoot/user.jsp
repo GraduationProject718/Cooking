@@ -28,6 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		简介：${user.u_information}
 		电话：${user.u_phone }
 		邮箱：${user.u_email }
+		
+		
 	<jsp:include page="footer.jsp"></jsp:include>			
 	</div>
 	</center>

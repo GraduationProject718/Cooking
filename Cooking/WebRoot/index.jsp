@@ -62,13 +62,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="layui-tab-item layui-show">
 	    	<div class="layui-row layui-col-space10">
 			  <div class="layui-col-md4">
-			    1/3
+				封面
+			  	菜名
+			  	简介
 			  </div>
 			  <div class="layui-col-md4">
-			    1/3
+			  	封面
+			  	菜名
+			 	简介
 			  </div>
 			  <div class="layui-col-md4">
-			    1/3
+				封面
+			  	菜名
+			  	简介
 			  </div>
 			</div>
 	    </div>
