@@ -19,9 +19,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="layui-col-md9">
 	      	<img src="images/Cooking.png">
 	    </div>
+
 	    <div class="layui-col-md3">
-	     	<button data-toggle="modal" data-target="#login">登录</button>
-	     	<button data-toggle="modal" data-target="#register">注册</button>
+	    	<div>
+	     		<button data-toggle="modal" data-target="#login">登录</button>
+	     		<button data-toggle="modal" data-target="#register">注册</button>
+	     	</div>
+	     	<div>
+	     		
+	     		<ul class="layui-nav">
+				  <li class="layui-nav-item">
+				    <a href="user.jsp">个人中心<span class="layui-badge-dot"></span></a>
+				  </li>
+				  <li class="layui-nav-item">
+				    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
+				    <dl class="layui-nav-child">
+				      <dd><a href="javascript:;">修改信息</a></dd>
+				      <dd><a href="javascript:;">安全管理</a></dd>
+				      <dd><a href="javascript:;">退了</a></dd>
+				    </dl>
+				  </li>
+				</ul>
+	     	</div>
 	    </div>
 	  </div>
 	</div>
@@ -62,55 +81,73 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</script>
 	
 <!-- 登录 -->
+<form action="servlet/UserServlet?flag=login" method="post">
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">登录</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
 				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					登录
-				</h4>
 			</div>
 			<div class="modal-body">
-				账号:<input type="text" name="account" id="account" /><br />
-				密码:<input type="password" name="password" id="password" /><br />
+				账号:<input type="text" name="u_account" id="u_account" /><br />
+				密码:<input type="password" name="u_password" id="u_password" /><br />
 				<input type="submit" value="登录" />
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
-					提交更改
-				</button>
+				<button type="submit" class="btn btn-primary">登录</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
-
+</form>
 <!-- 注册 -->
+<form action="servlet/UserServlet?flag=register" method="post">
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					模态框（Modal）标题
-				</h4>
+				<h4 class="modal-title" id="myModalLabel">注册</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			</div>
 			<div class="modal-body">
-				在这里添加一些文本
+				<table>
+					<tr>
+						<td>账号</td>
+						<td><input type="text" name="u_account" id="u_account" /></td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td><input type="password" name="u_password" id="u_password" /></td>
+					</tr>
+					<tr>
+						<td>昵称</td>
+						<td><input type="text" name="u_nickname" id="u_nickname" /></td>
+					</tr>
+					<tr>
+						<td>手机号码</td>
+						<td><input type="text" name="u_phone" id="u_phone" /></td>
+					</tr>
+					<tr>
+						<td>邮箱</td>
+						<td><input type="text" name="u_email" id="u_email" /></td>
+					</tr>
+					<tr>
+						<td>简介</td>
+						<td><input type="text" name="u_information" id="u_information" /></td>
+					</tr>
+				</table>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
-					提交更改
-				</button>
+				<button type="submit" class="btn btn-primary">注册</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
+</form>
