@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,12 +22,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    </div>
 
 	    <div class="layui-col-md3">
+	    	<c:if test="${user.u_nickname == null}">
 	    	<div>
 	     		<button data-toggle="modal" data-target="#login">登录</button>
 	     		<button data-toggle="modal" data-target="#register">注册</button>
 	     	</div>
+	     	</c:if>
+	     	<c:if test="${user.u_nickname != null}">
 	     	<div>
-	     		
 	     		<ul class="layui-nav">
 				  <li class="layui-nav-item">
 				    <a href="user.jsp">个人中心<span class="layui-badge-dot"></span></a>
@@ -34,20 +37,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <li class="layui-nav-item">
 				    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
 				    <dl class="layui-nav-child">
-				      <dd><a href="javascript:;">修改信息</a></dd>
-				      <dd><a href="javascript:;">安全管理</a></dd>
-				      <dd><a href="javascript:;">退了</a></dd>
+				      <dd><a href="javascript:;">发布菜谱</a></dd>
+				      <dd><a href="javascript:;">发布文章</a></dd>
+				      <dd><a href="javascript:;">发布视频</a></dd>
 				    </dl>
 				  </li>
 				</ul>
 	     	</div>
+	     	</c:if>
 	    </div>
 	  </div>
 	</div>
 	<!--菜单-->
 	<ul class="layui-nav" lay-filter="">
 	<li class="layui-nav-item"><a href="">首页</a></li>
-	<li class="layui-nav-item layui-this"><a href="javascript:;">中餐</a>
+	<li class="layui-nav-item"><a href="javascript:;">中餐</a>
 	<dl class="layui-nav-child"> <!-- 二级菜单 -->
 	  <dd><a href="">川菜</a></dd>
 	  <dd><a href="">徽菜</a></dd>
