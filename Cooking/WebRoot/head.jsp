@@ -11,17 +11,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 
 <style>
+.layui-container{
+	margin:0px;
+	padding:0px;
+}
 .layui-nav .layui-nav-item a{
 	font-size: 25px;
 }
+.layui-col-md9 img{
+	float:left;
+}
+
 </style>
 	<div class="layui-container">  
 	  <div class="layui-row">
-	    <div class="layui-col-md9">
+	    <div class="layui-col-md4">
 	      	<img src="images/Cooking.png">
 	    </div>
 
-	    <div class="layui-col-md3">
+	    <div class="layui-col-md4 layui-col-md-offset4">
 	    	<c:if test="${user.u_nickname == null}">
 	    	<div>
 	     		<button data-toggle="modal" data-target="#login">登录</button>
@@ -37,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <li class="layui-nav-item">
 				    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
 				    <dl class="layui-nav-child">
-				      <dd><a href="javascript:;">发布菜谱</a></dd>
+				      <dd><a href="addRecipe.jsp">发布菜谱</a></dd>
 				      <dd><a href="javascript:;">发布文章</a></dd>
 				      <dd><a href="javascript:;">发布视频</a></dd>
 				    </dl>
