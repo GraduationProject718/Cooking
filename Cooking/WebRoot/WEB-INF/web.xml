@@ -17,13 +17,21 @@
     <servlet-name>AdministratorServlet</servlet-name>
     <url-pattern>/servlet/AdministratorServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>UserServlet</servlet-name>
-  	<servlet-class>action.UserServlet</servlet-class>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>action.UserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>UserServlet</servlet-name>
-  	<url-pattern>/servlet/UserServlet</url-pattern>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/servlet/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>RecipeServlet</servlet-name>
+    <servlet-class>action.RecipeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecipeServlet</servlet-name>
+    <url-pattern>/servlet/RecipeServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

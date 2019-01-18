@@ -16,19 +16,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="layui/css/layui.css" media="all">
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 
   </head>
   
   <body>
-	<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
 	<center>
   	<div class="container">
-   		<jsp:include page="head.jsp"></jsp:include>
-   		标题<input type="text" name="r_name" id="r_name" />
-   		
-   		<jsp:include page="footer.jsp"></jsp:include>
+   	<jsp:include page="head.jsp"></jsp:include>
+   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post">
+		<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
+ 		成品图<input type="file" name="r_img" name="r_img" /><br />
+ 		标题<input type="text" name="r_name" id="r_name" /><br />
+ 		简介<textarea rows="3" cols="3" name="r_information" id="r_information"></textarea><br />
+ 		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />
+ 		做法：<textarea rows="3" cols="3" name="r_practice" id="r_practice"></textarea><br />
+ 		<input type="submit" value="提交" />
+   	</form>
+   	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
    	</center>
 		
