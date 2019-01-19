@@ -106,7 +106,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="modal-body">
 				账号:<input type="text" name="u_account" id="u_account" /><br />
 				密码:<input type="password" name="u_password" id="u_password" /><br />
-				<input type="submit" value="登录" />
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭

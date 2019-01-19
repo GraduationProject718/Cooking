@@ -33,5 +33,21 @@
     <servlet-name>RecipeServlet</servlet-name>
     <url-pattern>/servlet/RecipeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>RecipeBaseDictServlet</servlet-name>
+    <servlet-class>action.RecipeBaseDictServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecipeBaseDictServlet</servlet-name>
+    <url-pattern>/servlet/RecipeBaseDictServlet</url-pattern>
+  </servlet-mapping>
   
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>filter.encodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

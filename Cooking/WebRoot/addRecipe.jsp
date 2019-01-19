@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,17 +18,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
-
+	
+	<script type="text/javascript">
+		$(function(){
+			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+				var rbdParent = eval(data);
+				var rbdChild = eval(data);
+				$.each(rbdParent,function(i,parent_item){
+	          		if(rbdParent[i].rbd_parentId == 0){
+	    				$("#rbd_parent").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
+          			}
+          			if(rbdParent[i].rbd_parentId == 1){
+          				$("#rbd_child").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
+          			}
+				});
+			},"json");
+		});
+		
+		function getChild(){
+			$("#rbd_child").empty();
+			var rbd_id =$("#rbd_parent").val();
+			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+				var rbdChild = eval(data);
+   				$.each(rbdChild,function(j,child_item){
+     				if(rbd_id == rbdChild[j].rbd_parentId){
+     					$("#rbd_child").append("<option value='"+rbdChild[j].rbd_id+"'>"+rbdChild[j].rbd_name+"</option>");
+     				}
+				});
+			},"json");
+		}
+	</script>
   </head>
   
   <body>
 	<center>
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
-   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post">
+   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
- 		成品图<input type="file" name="r_img" name="r_img" /><br />
+ 		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
+ 			
+ 		</select>
+ 		<select id="rbd_child" name="rbd_child">
+ 			
+ 		</select>
+ 		成品图<input type="file" name="upload" id="upload" /><br />
  		标题<input type="text" name="r_name" id="r_name" /><br />
  		简介<textarea rows="3" cols="3" name="r_information" id="r_information"></textarea><br />
  		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />
