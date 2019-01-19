@@ -10,6 +10,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="layui/layui.all.js"></script>
 <script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 
+<script type="text/javascript">
+		$(function(){
+			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+				var rbdParent = eval(data);
+				var rbdChild = eval(data);
+				$.each(rbdParent,function(i,parent_item){
+	          		if(rbdParent[i].rbd_parentId == 0){
+	    				$("#rbd_parent").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
+          			}
+          			if(rbdParent[i].rbd_parentId == 1){
+          				$("#rbd_child").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
+          			}
+				});
+			},"json");
+		});
+		
+		function getChild(){
+			$("#rbd_child").empty();
+			var rbd_id =$("#rbd_parent").val();
+			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+				var rbdChild = eval(data);
+   				$.each(rbdChild,function(j,child_item){
+     				if(rbd_id == rbdChild[j].rbd_parentId){
+     					$("#rbd_child").append("<option value='"+rbdChild[j].rbd_id+"'>"+rbdChild[j].rbd_name+"</option>");
+     				}
+				});
+			},"json");
+		}
+	</script>
+
 <style>
 .layui-container{
 	margin:0px;
@@ -46,8 +76,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
 				    <dl class="layui-nav-child">
 				      <dd><a href="addRecipe.jsp">发布菜谱</a></dd>
-				      <dd><a href="javascript:;">发布文章</a></dd>
-				      <dd><a href="javascript:;">发布视频</a></dd>
+				      <dd><a href="addArticle.jsp">发布文章</a></dd>
+				      <dd><a href="javascript:;" data-toggle="modal" data-target="#addVideos">发布视频</a></dd>
 				    </dl>
 				  </li>
 				</ul>
@@ -157,6 +187,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
 				<button type="submit" class="btn btn-primary">注册</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+</form>
+<!-- 添加视频 -->
+<form action="servlet/VideosServlet?flag=addVideos" method="post">
+<div class="modal fade" id="addVideos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">发布视频</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
+		 		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
+		 		</select>
+		 		<select id="rbd_child" name="rbd_child">
+ 				</select>
+		 		<input type="file" >
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="submit" class="btn btn-primary">发布</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->

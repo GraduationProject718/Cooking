@@ -41,7 +41,22 @@
     <servlet-name>RecipeBaseDictServlet</servlet-name>
     <url-pattern>/servlet/RecipeBaseDictServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>ArticleServlet</servlet-name>
+    <servlet-class>action.ArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArticleServlet</servlet-name>
+    <url-pattern>/servlet/ArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>VideosServlet</servlet-name>
+    <servlet-class>action.VideosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VideosServlet</servlet-name>
+    <url-pattern>/servlet/VideosServlet</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>filter.encodingFilter</filter-class>

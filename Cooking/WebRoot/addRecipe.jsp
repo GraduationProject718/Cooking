@@ -17,10 +17,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	
+	<link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" >
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
-	
+	<link rel="stylesheet" href="css/index.css" >
 	<script type="text/javascript">
 		$(function(){
 			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
@@ -56,15 +59,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<center>
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
-   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post" enctype="multipart/form-data">
+   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post">
 		<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
  		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
- 			
  		</select>
  		<select id="rbd_child" name="rbd_child">
- 			
  		</select>
- 		成品图<input type="file" name="upload" id="upload" /><br />
  		标题<input type="text" name="r_name" id="r_name" /><br />
  		简介<textarea rows="3" cols="3" name="r_information" id="r_information"></textarea><br />
  		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />

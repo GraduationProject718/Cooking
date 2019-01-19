@@ -78,7 +78,6 @@ public class UserServlet extends HttpServlet {
 			user.setU_imgName(u_imgName);
 			user.setU_imgUrl(u_imgUrl);
 			if(userService.register(user)){
-				System.out.println("OK");
 				response.sendRedirect("../index.jsp");
 			}
 		}

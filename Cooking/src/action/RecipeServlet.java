@@ -54,19 +54,32 @@ public class RecipeServlet extends HttpServlet {
 			String r_information = request.getParameter("r_information");
 			String r_material = request.getParameter("r_material");
 			String r_practice = request.getParameter("r_practice");
-			System.out.println("u_id"+r_UId+"\n名称"+r_name+"\n简介"+r_information+"\n材料"+r_material+"\n做法"+r_practice);
-			/*response.sendRedirect("../user.jsp");*/
+			String rbd_parent = request.getParameter("rbd_parent");
+			String rbd_child = request.getParameter("rbd_child");
+			System.out.println("u_id"+r_UId+"\n名称"+r_name+"\n简介"+r_information+"\n材料"+r_material+"\n做法"+r_practice+"\nrbd_parent"+rbd_parent+"\nrbd_child"+rbd_child);
 			int r_click = 0;
+			String r_imgName = "";
+			String r_imgUrl = "";
 			Date date = new Date(new java.util.Date().getTime());
 			String r_time = date.toString();
 			recipe.setR_name(r_name);
 			recipe.setR_information(r_information);
+			recipe.setR_imgName(r_imgName);
+			recipe.setR_imgUrl(r_imgUrl);
 			recipe.setR_material(r_material);
 			recipe.setR_practice(r_practice);
 			recipe.setR_click(r_click);
 			recipe.setR_time(r_time);
 			recipe.setR_UId(Integer.valueOf(r_UId));
-			
+			if(rbd_child == null || rbd_child== ""){
+				recipe.setRBDId(Integer.valueOf(rbd_parent));
+			}else{
+				recipe.setRBDId(Integer.valueOf(rbd_child));
+			}
+			if(recipeService.addRecipe(recipe)){
+				response.sendRedirect("../user.jsp");
+			}
+			/*
 			// 检测是否为多媒体上传
 	        if (!ServletFileUpload.isMultipartContent(request)) {
 	            // 如果不是则停止
@@ -116,10 +129,10 @@ public class RecipeServlet extends HttpServlet {
 	                        recipe.setR_imgUrl(uploadPath);
 	                        // 保存文件到硬盘
 	                        item.write(storeFile);
-	                        /*
+	                        
 	                        if(mService.upload_img(m)){
 	                        	out.print("");
-	                        }*/
+	                        }
 	                        
 	                    }
 	                }
@@ -127,7 +140,7 @@ public class RecipeServlet extends HttpServlet {
 	        } catch (Exception ex) {
 	            request.setAttribute("message","错误信息: " + ex.getMessage());
 	        }
-		
+		*/
 		}
 	}
 
