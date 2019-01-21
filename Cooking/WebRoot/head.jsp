@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    <a href="user.jsp">个人中心<span class="layui-badge-dot"></span></a>
 				  </li>
 				  <li class="layui-nav-item">
-				    <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
+				    <a href="user.jsp"><img src="//t.cn/RCzsdCq" class="layui-nav-img">${user.u_nickname}</a>
 				    <dl class="layui-nav-child">
 				      <dd><a href="addRecipe.jsp">发布菜谱</a></dd>
 				      <dd><a href="addArticle.jsp">发布文章</a></dd>
@@ -84,8 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</dl>
 	</li>
 	<li class="layui-nav-item"><a href="">饮品/甜点</a></li>
-	<li class="layui-nav-item"><a href="">健康与养生</a></li>
-	<li class="layui-nav-item"><a href="">视频中心</a></li>
+	<li class="layui-nav-item"><a href="healthAndWellness.jsp">健康与养生</a></li>
+	<li class="layui-nav-item"><a href="videos.jsp">视频中心</a></li>
 	</ul>
 	
 	<script>
