@@ -7,38 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="layui/css/layui.css" media="all">
 <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" >
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="layui/layui.all.js"></script>
 <script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-		$(function(){
-			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
-				var rbdParent = eval(data);
-				var rbdChild = eval(data);
-				$.each(rbdParent,function(i,parent_item){
-	          		if(rbdParent[i].rbd_parentId == 0){
-	    				$("#rbd_parent").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
-          			}
-          			if(rbdParent[i].rbd_parentId == 1){
-          				$("#rbd_child").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
-          			}
-				});
-			},"json");
-		});
-		
-		function getChild(){
-			$("#rbd_child").empty();
-			var rbd_id =$("#rbd_parent").val();
-			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
-				var rbdChild = eval(data);
-   				$.each(rbdChild,function(j,child_item){
-     				if(rbd_id == rbdChild[j].rbd_parentId){
-     					$("#rbd_child").append("<option value='"+rbdChild[j].rbd_id+"'>"+rbdChild[j].rbd_name+"</option>");
-     				}
-				});
-			},"json");
-		}
-	</script>
 
 <style>
 .layui-container{
@@ -47,9 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
 .layui-nav .layui-nav-item a{
 	font-size: 25px;
+	
 }
 .layui-col-md9 img{
 	float:left;
+}
+.layui-nav-child{
+	z-index:9999;
 }
 
 </style>
@@ -121,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	});
 	</script>
-	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
 <!-- 登录 -->
 <form action="servlet/UserServlet?flag=login" method="post">
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -134,8 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</button>
 			</div>
 			<div class="modal-body">
-				账号:<input type="text" name="u_account" id="u_account" /><br />
-				密码:<input type="password" name="u_password" id="u_password" /><br />
+				账号:<input type="text" name="u_account" /><br />
+				密码:<input type="password" name="u_password" /><br />
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -192,29 +165,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div><!-- /.modal -->
 </div>
 </form>
-<!-- 添加视频 -->
-<form action="servlet/VideosServlet?flag=addVideos" method="post">
-<div class="modal fade" id="addVideos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title" id="myModalLabel">发布视频</h4>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class="modal-body">
-				<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
-		 		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
-		 		</select>
-		 		<select id="rbd_child" name="rbd_child">
- 				</select>
-		 		<input type="file" >
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
-				<button type="submit" class="btn btn-primary">发布</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
-</div>
-</form>
+

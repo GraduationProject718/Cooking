@@ -20,16 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" >
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
-	<link rel="stylesheet" href="css/index.css" >
+
 	<script type="text/javascript">
 		$(function(){
-			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+			$.post("servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
 				var rbdParent = eval(data);
 				var rbdChild = eval(data);
-				$.each(rbdParent,function(i,parent_item){
+				$.each(rbdParent,function(i,item){
 	          		if(rbdParent[i].rbd_parentId == 0){
 	    				$("#rbd_parent").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
           			}
@@ -43,9 +44,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function getChild(){
 			$("#rbd_child").empty();
 			var rbd_id =$("#rbd_parent").val();
-			$.post("${pageContext.request.contextPath}/servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
+			$.post("servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
 				var rbdChild = eval(data);
-   				$.each(rbdChild,function(j,child_item){
+   				$.each(rbdChild,function(j,tem){
      				if(rbd_id == rbdChild[j].rbd_parentId){
      					$("#rbd_child").append("<option value='"+rbdChild[j].rbd_id+"'>"+rbdChild[j].rbd_name+"</option>");
      				}
@@ -60,15 +61,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
    	<form action="servlet/RecipeServlet?flag=addRecipe" method="post">
-		<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
- 		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
- 		</select>
- 		<select id="rbd_child" name="rbd_child">
- 		</select>
- 		标题<input type="text" name="r_name" id="r_name" /><br />
- 		简介<textarea rows="3" cols="3" name="r_information" id="r_information"></textarea><br />
+		<input type="hidden" name="u_id"  id="u_id"value="${user['u_id'] }">
+ 		<select name="rbd_parent"  id="rbd_parent" onchange="getChild()"></select>
+ 		<select name="rbd_child" id="rbd_child"></select><br />
+ 		标题<input type="text" name="r_name"  id="r_name"/><br />
+ 		简介<textarea rows="3" cols="3" name="r_information"  id="r_information"></textarea><br />
  		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />
- 		做法：<textarea rows="3" cols="3" name="r_practice" id="r_practice"></textarea><br />
+ 		做法：<textarea rows="3" cols="3" name="r_practice"  id="r_practice"></textarea><br />
  		<input type="submit" value="提交" />
    	</form>
    	<jsp:include page="footer.jsp"></jsp:include>

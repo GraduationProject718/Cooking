@@ -81,13 +81,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="layui-tab-item">1*3</div>
 	  </div>
 	</div>
-	 
-	<script>
-	layui.use('element', function(){
-	  var element = layui.element;
-	  
-	});
-	</script>
 		
 	<!--中餐--> 
 	<div class="layui-tab">
@@ -99,14 +92,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </div>
 	</div>
 	 
-	<script>
-	//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
-	layui.use('element', function(){
-	  var element = layui.element;
-	  
-	  //…
-	});
-	</script>
 		
 	<!--西餐--> 
 	<div class="layui-tab">
@@ -117,12 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="layui-tab-item layui-show">2*3</div>
 	  </div>
 	</div>
-	<script>
-	layui.use('element', function(){
-	  var element = layui.element;
-	  
-	});
-	</script>
 		
 	<!--饮品/甜点-->
 	<div class="layui-tab">
@@ -132,16 +111,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">2*3</div>
-	    <div class="layui-tab-item">2*3</div>
+	    <div class="layui-tab-item">tiandian</div>
 	  </div>
 	</div>
-	 
-	<script>
-	layui.use('element', function(){
-	  var element = layui.element;
-	  
-	});
-	</script>
 	
 	<!--footer-->
 		<jsp:include page="footer.jsp"></jsp:include>

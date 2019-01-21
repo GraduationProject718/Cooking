@@ -15,13 +15,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	
+	<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" >
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<link rel="stylesheet" href="css/index.css" >
   </head>
   
   <body>
 	<center>
 	<div class="container">
-	<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="head.jsp"  flush="true"></jsp:include>
+		头像<br />
 		昵称:${user.u_nickname}<br />
 		简介：${user.u_information}<br />
 		电话：${user.u_phone }<br />
@@ -39,11 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
 		 
-		<script>
-		layui.use('element', function(){
-		  var element = layui.element;
-		});
-		</script>
 		<!-- 我的文章 -->
 		<div class="layui-tab">
 		  <ul class="layui-tab-title">
@@ -54,12 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		</div>
 		 
-		<script>
-		layui.use('element', function(){
-		  var element = layui.element;
-		});
-		</script>
-		
 		<!-- 我的视频 -->	
 		<!--中餐--> 
 		<div class="layui-tab">
@@ -70,12 +64,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <div class="layui-tab-item layui-show">2*3</div>
 		  </div>
 		</div>
-		 
-		<script>
-		layui.use('element', function(){
-		  var element = layui.element;
-		});
-		</script>
 	<jsp:include page="footer.jsp"></jsp:include>			
 	</div>
 	</center>

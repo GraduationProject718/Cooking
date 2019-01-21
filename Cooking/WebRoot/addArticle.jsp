@@ -17,17 +17,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js"> </script>
     <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.parse.js"> </script>
     <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
-    
 	<link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" >
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    
 	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
-	<link rel="stylesheet" href="css/index.css" >
+	
 	<script type="text/javascript">
 	var ue = UE.getEditor('a_content');
 	
@@ -79,12 +79,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="modal-body">
 						<input type="hidden" name="u_id" id="u_id" value="${user.u_id }">
-				 		<select id="rbd_parent" name="rbd_parent" onchange="getChild()">
-				 		</select>
-				 		<select id="rbd_child" name="rbd_child">
-				 		</select><br />
-		 				<label>输入标题</label><input class="layui-input" type="text" name="a_title" id="a_title" ><br />
-						<label>输入时间</label><input class="layui-input" type="text" name="a_time" id="a_time">
+				 		<select  name="rbd_parent" id="rbd_parent" onchange="getChild()"></select>
+				 		<select  name="rbd_child" id="rbd_child"></select><br />
+		 				<label>输入标题</label><input class="layui-input" type="text" name="a_title" id="a_title" /><br />
+						<label>输入时间</label><input class="layui-input" type="text" name="a_time" id="a_time"/>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
