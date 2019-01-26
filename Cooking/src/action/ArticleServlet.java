@@ -2,6 +2,7 @@ package action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Article;
+import entity.PageBean;
 import service.ArticleService;
 import service.RecipeService;
 
@@ -58,8 +60,26 @@ public class ArticleServlet extends HttpServlet {
 			if(articleService.addLogin(article)){
 				response.sendRedirect("../user.jsp");
 			}
-			
 		}
+		
+		if("healthAndWellness".equals(flag)){
+			String currentPage = request.getParameter("currentPage"); 
+			int pageCount = 5;
+			if(currentPage == ""||currentPage==null){
+				currentPage = "1";
+			}
+			int currPage = Integer.valueOf(currentPage);
+			
+			int start = (currPage-1)*pageCount;
+			int end = start+pageCount;
+			ArrayList<Article> list = articleService.findArticle(start,end);
+			request.getSession().setAttribute("article", list);
+			request.getSession().setAttribute("currPage", currPage);
+			response.sendRedirect("../healthAndWellness.jsp");
+		}
+		
+		out.flush();
+		out.close();
 		
 	}
 

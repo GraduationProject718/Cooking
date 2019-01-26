@@ -47,5 +47,19 @@ public class UserService {
 		}
 		return user;
 	}
+	public boolean editUser(int u_id,String u_nickname, String u_information, String u_phone, String u_email) {
+		String sql = "update user set u_nickname='"+u_nickname+"', u_information='"+u_information+"', u_phone='"+u_phone+"', u_email='"+u_email+"' where u_id="+u_id;
+		if(dao.update(sql)>0){
+			return true;
+		}
+		return false;
+	}
+	public boolean editPassword(int u_id,String u_newPassword) {
+		String sql="update user set u_password='"+u_newPassword+"' where u_id="+u_id;
+		if(dao.update(sql)>0){
+			return true;
+		}
+		return false;
+	}
 
 }

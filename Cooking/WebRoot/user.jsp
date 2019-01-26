@@ -20,9 +20,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 	<link rel="stylesheet" href="css/index.css" >
+	
+	<script type="text/javascript">
+		/* 我的文章 */
+		var u_id = $("#u_id").val();
+		
+	</script>
   </head>
   
   <body>
+  	<input type="hidden" name="u_id" id="u_id" value="${user.u_id}"/>
 	<center>
 	<div class="container">
 	<jsp:include page="head.jsp"  flush="true"></jsp:include>
@@ -31,8 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		简介：${user.u_information}<br />
 		电话：${user.u_phone }<br />
 		邮箱：${user.u_email }<br />
-		<input type="button" value="修改个人信息" />
-		<input type="button" value="修改密码" />
+		<input type="button" data-toggle="modal" data-target="#editUser" value="修改个人信息" />
+		<input type="button" data-toggle="modal" data-target="#editPassword" value="修改密码" />
 		
 		<!-- 我的菜谱 -->
 		<div class="layui-tab">
@@ -50,7 +57,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <li class="layui-this">我的文章</li>
 		  </ul>
 		  <div class="layui-tab-content">
-		    <div class="layui-tab-item layui-show">2*3</div>
+		    <div class="layui-tab-item layui-show" id="myArticle">
+
+			</div>
 		  </div>
 		</div>
 		 
@@ -67,5 +76,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="footer.jsp"></jsp:include>			
 	</div>
 	</center>
+	
+	<!-- 修改个人信息 -->
+	<form action="servlet/UserServlet?flag=editUser" method="post">
+	<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="u_id" id="u_id" value="${user.u_id}"/>
+					昵称:<input type="text" name="u_nickname" id="u_nickname" value="${user.u_nickname}"/><br />
+					简介:<input type="text" name="u_information" id="u_information" value="${user.u_information}"/><br />
+					电话:<input type="text" name="u_phone" id="u_phone" value="${user.u_phone}"/><br />
+					邮箱:<input type="text" name="u_email" id="u_email" value="${user.u_email}"/><br />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="submit" class="btn btn-primary">确定</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	</form>
+	
+	<!-- 修改密码 -->
+	<form action="servlet/UserServlet?flag=editPassword" method="post">
+	<div class="modal fade" id="editPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">修改密码</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="u_id" id="u_id" value="${user.u_id}"/>
+					旧密码:<input type="password" name="u_oldPassword" id="u_oldPassword"/><br />
+					新密码:<input type="password" name="u_newPassword" id="u_newPassword" /><br />
+					新密码:<input type="password" name="u_confirmPassword" id="u_confirmPassword" /><br />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="submit" class="btn btn-primary">确定</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+	</form>
   </body>
 </html>

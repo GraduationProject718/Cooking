@@ -81,6 +81,44 @@ public class UserServlet extends HttpServlet {
 				response.sendRedirect("../index.jsp");
 			}
 		}
+		
+		if("editUser".equals(flag)){
+			String id = request.getParameter("u_id");
+			String u_nickname = request.getParameter("u_nickname");
+			String u_information = request.getParameter("u_information");
+			String u_phone = request.getParameter("u_phone");
+			String u_email = request.getParameter("u_email");
+			int u_id = Integer.valueOf(id);
+			if(userService.editUser(u_id,u_nickname,u_information,u_phone,u_email)){
+				ArrayList<User> list = userService.getAll();
+				for(User u: list){ 
+					if(u.getU_id() == u_id){
+						request.getSession().setAttribute("user", u);
+						response.sendRedirect("../user.jsp");
+					}
+				}
+			}
+		}
+		
+		if("editPassword".equals(flag)){
+			String id = request.getParameter("u_id");
+			int u_id = Integer.valueOf(id);
+			String u_oldPassword = request.getParameter("u_oldPassword");
+			String u_newPassword = request.getParameter("u_newPassword");
+			String u_confirmPassword = request.getParameter("u_confirmPassword");
+			ArrayList<User> list = userService.getAll();
+			for(User u: list){ 
+				if(u_newPassword.equals(u_confirmPassword) && u.getU_password().equals(u_oldPassword)){
+					if(userService.editPassword(u_id, u_newPassword) && u.getU_id() == u_id){
+						request.getSession().setAttribute("user", u);
+						response.sendRedirect("../user.jsp");
+					}
+				}else{
+					out.write("您输入的信息有误！"); 
+				}
+			}
+			
+		}
 		out.flush();
 		out.close();
 	}

@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</dl>
 	</li>
 	<li class="layui-nav-item"><a href="">饮品/甜点</a></li>
-	<li class="layui-nav-item"><a href="">健康与养生</a></li>
+	<li class="layui-nav-item"><a href="servlet/ArticleServlet?flag=healthAndWellness">健康与养生</a></li>
 	<li class="layui-nav-item"><a href="">视频中心</a></li>
 	</ul>
 	
