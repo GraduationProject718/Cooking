@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</c:forEach>
 	<a href="servlet/ArticleServlet?flag=healthAndWellness&currentPage=1">首页</a>	
 	<a href="servlet/ArticleServlet?flag=healthAndWellness&currentPage=${currPage-1}">上一页</a>
-	当前页数：${currPage}<br />
+	当前页数：${currPage}
 	<a href="servlet/ArticleServlet?flag=healthAndWellness&currentPage=${currPage+1}">下一页</a>
 	<a href="servlet/ArticleServlet?flag=healthAndWellness">尾页</a>
 	<jsp:include page="footer.jsp"></jsp:include>

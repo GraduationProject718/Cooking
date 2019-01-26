@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Article;
-import entity.PageBean;
 import service.ArticleService;
-import service.RecipeService;
-
-
 
 
 @WebServlet("/ArticleServlet")
@@ -78,6 +74,12 @@ public class ArticleServlet extends HttpServlet {
 			response.sendRedirect("../healthAndWellness.jsp");
 		}
 		
+		
+		if("myArticle".equals(flag)){
+			int u_id = Integer.valueOf(request.getParameter("u_id")); 
+			ArrayList<Article> list = articleService.getMyArticle(u_id);
+			request.getSession().setAttribute("myArticle", list);
+		}
 		out.flush();
 		out.close();
 		

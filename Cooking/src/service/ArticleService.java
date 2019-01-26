@@ -20,7 +20,23 @@ public class ArticleService {
 	public ArrayList<Article> findArticle(int start, int end) {
 		ArrayList<Article> article = new ArrayList<Article>();
 		String sql = "select * from article order by a_time,a_id desc limit "+start+","+end;
-		/*String sql = "select * from article order by a_time,a_id desc ";*/
+		Result result = dao.getList(sql);
+		Object[][] data = result.getRowsByIndex();
+		for(int i=0; i<data.length; i++){
+			Article a = new Article();
+			a.setA_id(Integer.valueOf(data[i][0].toString()));
+			a.setA_title(data[i][1].toString());
+			a.setA_content(data[i][2].toString());
+			a.setA_time(data[i][3].toString());
+			a.setA_UId(Integer.valueOf(data[i][4].toString()));
+			a.setA_RBDId(Integer.valueOf(data[i][5].toString()));
+			article.add(a);
+		}
+		return article;
+	}
+	public ArrayList<Article> getMyArticle(int u_id) {
+		ArrayList<Article> article = new ArrayList<Article>();
+		String sql = "select * from article where a_UId="+u_id+" order by a_time,a_id desc limit 5";
 		Result result = dao.getList(sql);
 		Object[][] data = result.getRowsByIndex();
 		for(int i=0; i<data.length; i++){
