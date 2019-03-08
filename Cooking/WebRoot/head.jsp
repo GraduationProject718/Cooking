@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
 .layui-nav .layui-nav-item a{
 	font-size: 25px;
-	
+	text-decoration: none;
 }
 .layui-col-md9 img{
 	float:left;
