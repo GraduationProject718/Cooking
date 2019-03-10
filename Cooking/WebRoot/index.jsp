@@ -15,17 +15,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="css/index.css" >
-	<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="layui/css/layui.css">
+	<link rel="stylesheet" href="css/index.css">
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 
   </head>
   
   <body>
-  	<center>
   	<div class="container">
-   		<jsp:include page="head.jsp"></jsp:include>
-		<!--搜索栏-->
+   	<jsp:include page="head.jsp"></jsp:include>
 		
 	<!--滚动图片-->
 	<div class="layui-carousel" id="test1" >
@@ -57,6 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <ul class="layui-tab-title">
 	    <li class="layui-this">推荐</li>
 	    <li>热门</li>
+	    <li>最新</li>
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
@@ -79,6 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 	    </div>
 	    <div class="layui-tab-item">1*3</div>
+	    <div class="layui-tab-item">最新</div>
 	  </div>
 	</div>
 		
@@ -103,21 +103,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </div>
 	</div>
 		
-	<!--饮品/甜点-->
+	<!--饮品-->
 	<div class="layui-tab">
 	  <ul class="layui-tab-title">
 	    <li class="layui-this">饮品</li>
-	    <li>甜点</li>
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">2*3</div>
-	    <div class="layui-tab-item">tiandian</div>
 	  </div>
 	</div>
 	
-	<!--footer-->
-		<jsp:include page="footer.jsp"></jsp:include>
+	<!-- 甜点 -->
+	<div class="layui-tab">
+	  <ul class="layui-tab-title">
+	    <li class="layui-this">甜点</li>
+	  </ul>
+	  <div class="layui-tab-content">
+	    <div class="layui-tab-item layui-show">甜点</div>
+	  </div>
 	</div>
-	</center>
+	<!--footer-->
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
   </body>
 </html>
