@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
 import com.cooking.domain.Article;
+import com.cooking.domain.PageModel;
 import com.cooking.domain.RecipeBaseDict;
 import com.cooking.service.ArticleService;
 import com.cooking.service.RecipeBaseDictService;
@@ -76,8 +77,12 @@ public class ArticleServlet extends BaseServlet {
 		return "addArticle.jsp";
 	}
 	
-	public String findArticleById(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+	public String getArticleBytype(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String a_type = request.getParameter("type");
+		int curNum =Integer.parseInt(request.getParameter("num"));
+		PageModel pm = aService.getArticleBytype(curNum,a_type);
+		request.setAttribute("page", pm);
+		return "article.jsp";
 	}
 	
 	public String findArticleByPage(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
+import com.cooking.domain.PageModel;
 import com.cooking.domain.Recipe;
 import com.cooking.domain.RecipeBaseDict;
 import com.cooking.service.RecipeBaseDictService;
@@ -26,6 +27,7 @@ import com.cooking.service.imp.RecipeBaseDictServiceImp;
 import com.cooking.service.imp.RecipeServiceImp;
 import com.cooking.utils.UUIDUtils;
 import com.cooking.utils.UploadUtils;
+
 
 public class RecipeServlet extends BaseServlet {
 	RecipeService rService = new RecipeServiceImp();
@@ -36,6 +38,14 @@ public class RecipeServlet extends BaseServlet {
 		request.setAttribute("rbd", rbd);
 		return "addRecipe.jsp";
 	}
+	public String getRecipeByRBDId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String rbd_id = request.getParameter("rbd_id");
+		int curNum =Integer.parseInt(request.getParameter("num"));
+		PageModel pm = rService.getRecipeByRBDId(curNum,rbd_id);
+		request.setAttribute("page", pm);
+		return "recipe.jsp";
+	}
+	
 	public String addRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String,String> map=new HashMap<String,String>();
 		Recipe recipe = new Recipe();
