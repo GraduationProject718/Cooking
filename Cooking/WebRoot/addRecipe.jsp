@@ -84,21 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		    </div>
 		  </div>
-		 
 		</form>
 		 </div>
-		<script>
-		//Demo
-		layui.use('form', function(){
-		  var form = layui.form;
-		  
-		  //监听提交
-		  form.on('submit(formDemo)', function(data){
-		    layer.msg(JSON.stringify(data.field));
-		    return false;
-		  });
-		});
-		</script>
    	<!-- end -->
    	
    	<jsp:include page="footer.jsp"></jsp:include>

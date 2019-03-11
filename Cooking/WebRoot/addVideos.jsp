@@ -54,18 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </div>
 	</form>
 	 </div>
-	<script>
-	//Demo
-	layui.use('form', function(){
-	  var form = layui.form;
-	  
-	  form.on('submit(formDemo)', function(data){
-	    layer.msg(JSON.stringify(data.field));
-	    return false;
-	  });
-	});
-	</script>
-   	
    	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
 		

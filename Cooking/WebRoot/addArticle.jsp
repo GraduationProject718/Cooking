@@ -71,19 +71,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</form>
 	
-	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
-	<script>
-	layui.use('laydate', function(){
-	  var laydate = layui.laydate;
-	 
-	  //执行一个laydate实例
-	  laydate.render({
-	    elem: '#a_time' //指定元素
-	  });
-	});
-	</script>
-	
-  	<!-- 添加 文章end -->
    	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
   </body>
