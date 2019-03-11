@@ -31,10 +31,11 @@
 <body>
 	<div class="container">
 		<jsp:include page="head.jsp"></jsp:include>
+		<div style="background-image: url('images/bg.jpg'); width:85%;background-size: 100%;" >
 			<div class="logo-box">
 				<div class="login" style="">
 					<div class="bxs-row" style="text-align:center;">
-						<span class="tips" style="font-size:25px;">用户注册</span>
+						<span class="tips" style="font-size:30px;"><b>用户注册</b></span>
 					</div>
 
 					<div class="bxs-row">
@@ -90,6 +91,7 @@
 				<div class="verBox">
 					<div id="imgVer" style="display:inline-block;"></div>
 				</div>
+			</div>
 			</div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>

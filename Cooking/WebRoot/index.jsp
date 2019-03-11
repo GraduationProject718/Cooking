@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  //建造实例
 	  carousel.render({
 	    elem: '#test1'
-	    ,width: '80%' //设置容器宽度
+	    ,width: '85%' //设置容器宽度
 	    ,height:'500px' // 设置容器高度
 	    ,arrow: 'always' //始终显示箭头
 	    //,anim: 'updown' //切换动画方式

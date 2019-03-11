@@ -24,16 +24,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/img_ver.js"></script>
-
+<style type="text/css">
+</style>
 </head>
 
 <body>
 	<div class="container">
-		<jsp:include page="head.jsp"></jsp:include>
+	<jsp:include page="head.jsp"></jsp:include>
+			<div style="background-image: url('images/bg.jpg'); width:85%;background-size: 100%;" >
 			<div class="logo-box">
 				<div class="login" style="">
 					<div class="bxs-row" style="text-align:center;">
-						<span class="tips" style="font-size:25px;">用户登录</span>
+						<span class="tips" style="font-size:30px;"><b>用户登录</b></span>
 					</div>
 
 					<div class="bxs-row">
@@ -55,6 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div id="imgVer" style="display:inline-block;"></div>
 				</div>
 			</div>
+			</div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 	<script>
@@ -64,9 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	         height:'116',
 	         img:[
 	             'images/ver.png',
-	             'images/ver-1.png',
-	             'images/ver-2.png',
-	             'images/ver-3.png'
+	             'images/ver-1.jpg',
+	             'images/ver-2.jpg',
+	             'images/ver-3.jpg'
 	         ],
 	         success:function () {
 	         	 var u_account = $("#u_account").val();

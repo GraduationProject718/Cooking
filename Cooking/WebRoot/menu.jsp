@@ -5,7 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <link rel="stylesheet" href="layui/css/layui.css">
 <script type="text/javascript" src="layui/layui.js"></script>
-	<ul class="layui-nav" style="width:80%">
+	<ul class="layui-nav" style="width:85%">
 	<li class="layui-nav-item layui-this"><a href="">首页</a></li>
 	<li class="layui-nav-item"><a href="javascript:;">中餐</a>
 	<dl class="layui-nav-child"> <!-- 二级菜单 -->

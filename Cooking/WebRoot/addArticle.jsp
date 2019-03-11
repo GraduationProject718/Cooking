@@ -36,12 +36,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <center>
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
    	<form action="ArticleServlet?method=addArticle" method="post" enctype="multipart/form-data">
-		<textarea name="a_content" id="a_content" style="width: 100%; height: 100%;margin:0 auto;"></textarea>
-   		<h3><input class="layui-btn layui-btn-normal" value="编辑完成" data-toggle="modal" data-target="#addArticle"><i class="layui-icon"/></h3>
+		<textarea name="a_content" id="a_content" style="width: 90%; height: 100%;"></textarea>
+   		<h3><input style="margin:20px;" class="layui-btn layui-btn-normal" value="编辑完成" data-toggle="modal" data-target="#addArticle"><i class="layui-icon"/></h3>
    		<!-- 添加 文章begin --><!-- 模态框（Modal） -->
   	
 		<div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,6 +86,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<!-- 添加 文章end -->
    	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
-   	</center>
   </body>
 </html>
