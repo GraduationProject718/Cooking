@@ -87,7 +87,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 		 </div>
    	<!-- end -->
-   	
+   	<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    return true;
+  });
+});</script>
    	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
 		
