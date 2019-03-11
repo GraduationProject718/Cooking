@@ -30,15 +30,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin:20px;
 		}
 	</style>
-	
 	<div class="layui-container">  
 	<div class="layui-row">
 	<div class="layui-col-md4"><img src="images/Cooking.png"></div>
-	<div class="layui-col-md4 layui-col-md-offset4">
+	<div class="layui-col-md4 layui-col-md-offset2">
 	<c:if test="${empty user }">
 	   	<div class="loginAndRegister">
-	   		<a href="login.jsp">登录</a>
-	   		<a href="register.jsp">注册</a>
+	   		<a href="login.jsp"><img style="width:150px;height:50px;" src="images/loginbutton.png"></a>
+	   		<a href="register.jsp"><img style="width:150px;height:50px;" src="images/registerbutton.png"></a>
 	   	</div>
    	</c:if>
    	<c:if test="${not empty user }">

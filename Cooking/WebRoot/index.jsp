@@ -18,7 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="layui/css/layui.css">
 	<link rel="stylesheet" href="css/index.css">
 	<script type="text/javascript" src="layui/layui.all.js"></script>
-
+	<style type="text/css">
+		.layui-tab{
+			width:80%;
+		}
+	</style>
   </head>
   
   <body>
@@ -42,8 +46,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  //建造实例
 	  carousel.render({
 	    elem: '#test1'
-	    ,width: '100%' //设置容器宽度
-	    ,height:'400px' // 设置容器高度
+	    ,width: '80%' //设置容器宽度
+	    ,height:'500px' // 设置容器高度
 	    ,arrow: 'always' //始终显示箭头
 	    //,anim: 'updown' //切换动画方式
 	  });

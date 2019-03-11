@@ -4,9 +4,9 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <link rel="stylesheet" href="css/index.css" >
-<center>
-<div class="footer"> 
+<div class="footer">
+	<center>
 　　© 马如涛 版权所有<br /> 
-　　计本1501 201508110056 
+　　计本1501 201508110056
+	</center>
 </div> 
-</center>
