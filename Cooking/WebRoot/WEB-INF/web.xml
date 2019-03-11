@@ -50,6 +50,11 @@
     <servlet-name>RecipeServlet</servlet-name>
     <servlet-class>com.cooking.servlet.RecipeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>VideosServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.VideosServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -67,5 +72,9 @@
   <servlet-mapping>
     <servlet-name>RecipeServlet</servlet-name>
     <url-pattern>/RecipeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VideosServlet</servlet-name>
+    <url-pattern>/VideosServlet</url-pattern>
   </servlet-mapping>
 </web-app>

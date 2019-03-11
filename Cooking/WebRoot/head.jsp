@@ -7,7 +7,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
 	<script type="text/javascript" src="layui/layui.js"></script>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script src="js/bootstrap.min.js"></script>
 	<style>
 		.layui-container{
 			margin:0px;
@@ -49,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    			<dl class="layui-nav-child">
 		      				<dd><a href="RecipeServlet?method=addRecipePage">发布菜谱</a></dd>
 		      				<dd><a href="ArticleServlet?method=addArticlePage">发布文章</a></dd>
-		      				<dd><a href="javascript:;">发布视频</a></dd>
+		      				<dd><a href="VideosServlet?method=addVideosPage">发布视频</a></dd>
 		      				<dd><a href="UserServlet?method=exit">退出</a></dd>
 		    			</dl>
 		  		</li>
