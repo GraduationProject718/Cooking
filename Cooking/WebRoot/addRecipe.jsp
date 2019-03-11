@@ -33,9 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<jsp:include page="head.jsp"></jsp:include>
    	<form action="RecipeServlet?method=addRecipe" method="post" enctype="multipart/form-data">
  		菜名<input type="text" name="r_name"  id="r_name"/><br />
- 		简介<textarea rows="3" cols="3" name="r_information"  id="r_information"></textarea><br />
- 		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />
- 		做法：<textarea rows="3" cols="3" name="r_practice"  id="r_practice"></textarea><br />
+ 		简介<textarea rows="5" cols="100" name="r_information"  id="r_information"></textarea><br />
+ 		材料：<textarea rows="5" cols="100" name="r_material" id="r_material"></textarea><br />
+ 		做法：<textarea rows="30" cols="100" name="r_practice"  id="r_practice"></textarea><br />
  		<select name="r_RBDId">
 	     	 <c:forEach items="${rbd}" var="r">
 	     	 	<c:if test="${r.rbd_parentId != 0 }">
