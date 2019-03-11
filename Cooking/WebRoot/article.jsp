@@ -25,8 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container">
   	<jsp:include page="head.jsp"></jsp:include>
   	<c:forEach items="${page.list}" var="a" varStatus="status">
-		<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${a.a_img }"><br />
-		${a.a_title } <br />
+		<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${a.a_img }">
+		${a.a_title }
 		${a.a_time }<br />
 	    </c:forEach>
 	    <jsp:include page="pageFile.jsp"></jsp:include>

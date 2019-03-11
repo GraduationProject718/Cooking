@@ -65,25 +65,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
 	    	<div class="layui-row layui-col-space10">
-			  <div class="layui-col-md4">
-				封面
-			  	菜名
-			  	简介
-			  </div>
-			  <div class="layui-col-md4">
-			  	封面
-			  	菜名
-			 	简介
-			  </div>
-			  <div class="layui-col-md4">
-				封面
-			  	菜名
-			  	简介
-			  </div>
+			  <c:forEach items="${tuijian}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
 			</div>
 	    </div>
-	    <div class="layui-tab-item">1*3</div>
-	    <div class="layui-tab-item">最新</div>
+	    <div class="layui-tab-item">
+			<c:forEach items="${remen}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name }
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
+	    <div class="layui-tab-item">
+			<c:forEach items="${zuixin}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
 	  </div>
 	</div>
 		
@@ -93,7 +95,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">中餐</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item layui-show">
+			<c:forEach items="${zhongcan}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
 	  </div>
 	</div>
 	 
@@ -104,7 +112,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">西餐</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item layui-show">
+			<c:forEach items="${xican}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
 	  </div>
 	</div>
 		
@@ -114,7 +128,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">饮品</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item layui-show">
+			<c:forEach items="${yinpin}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
 	  </div>
 	</div>
 	
@@ -124,7 +144,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">甜点</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">甜点</div>
+	    <div class="layui-tab-item layui-show">
+			<c:forEach items="${tiandian}" var="r" varStatus="status">
+				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
+				${r.r_name } 
+				${r.r_information }<br />
+			 </c:forEach>
+		</div>
 	  </div>
 	</div>
 	<!--footer-->

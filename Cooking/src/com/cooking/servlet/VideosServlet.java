@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
+import com.cooking.domain.PageModel;
 import com.cooking.domain.Videos;
 import com.cooking.service.VideosService;
 import com.cooking.service.imp.VideosServiceImp;
@@ -29,7 +30,12 @@ public class VideosServlet extends BaseServlet {
 	public String addVideosPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return "addVideos.jsp";
 	}
-	
+	public String getVideosByMenu(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum =Integer.parseInt(request.getParameter("num"));
+		PageModel pm = vService.getVideosByMenu(curNum);
+		request.setAttribute("page", pm);
+		return "videos.jsp";
+	}
 	public String addVideos(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String,String> map=new HashMap<String,String>();
 		Videos videos = new Videos();

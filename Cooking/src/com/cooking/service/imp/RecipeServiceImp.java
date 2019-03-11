@@ -24,5 +24,34 @@ public class RecipeServiceImp implements RecipeService {
 		pm.setUrl("RecipeServlet?method=getRecipeByRBDId&rbd_id="+rbd_id);
 		return pm;	
 	}
+	@Override
+	public List<Recipe> getYinPin() throws Exception {
+		return rDao.getYinPin();
+	}
+	@Override
+	public List<Recipe> getTianDian() throws Exception {
+		return rDao.getTianDian();
+	}
+	@Override
+	public List<Recipe> getReMen() throws Exception {
+		return rDao.getReMen();
+	}
+	@Override
+	public List<Recipe> getZuiXin() throws Exception {
+		return rDao.getZuiXin();
+	}
+	@Override
+	public List<Recipe> getTuiJian() throws Exception {
+		return rDao.getTuiJian();
+	}
+	@Override
+	public List<Recipe> getZhongCan() throws Exception {
+		return rDao.getZhongCan();
+	}
+	@Override
+	public List<Recipe> getXiCan() throws Exception {
+		return rDao.getXiCan();
+	}
+	
 
 }

@@ -12,4 +12,18 @@ public interface RecipeDao {
 
 	List<Recipe> getRecipeByRBDId(int startIndex, int pageSize, String rbd_id) throws Exception;
 
+	List<Recipe> getYinPin() throws Exception;
+
+	List<Recipe> getTianDian() throws Exception;
+
+	List<Recipe> getReMen() throws Exception;
+
+	List<Recipe> getZuiXin() throws Exception;
+
+	List<Recipe> getTuiJian()throws Exception;
+
+	List<Recipe> getZhongCan() throws Exception;
+
+	List<Recipe> getXiCan() throws Exception;
+
 }

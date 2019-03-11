@@ -1,7 +1,10 @@
 package com.cooking.service.imp;
 
+import java.util.List;
+
 import com.cooking.dao.VideosDao;
 import com.cooking.dao.imp.VideosDaoImp;
+import com.cooking.domain.PageModel;
 import com.cooking.domain.Videos;
 import com.cooking.service.VideosService;
 
@@ -10,6 +13,15 @@ public class VideosServiceImp implements VideosService {
 	@Override
 	public void addVideos(Videos videos) throws Exception {
 		vDao.addVideos(videos);
+	}
+	@Override
+	public PageModel getVideosByMenu(int curNum) throws Exception {
+		int totalRecords =vDao.findTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		List<Videos> list = vDao.getVideosByMenu(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("VideosServlet?method=getVideosByMenu");
+		return pm;
 	}
 	
 }
