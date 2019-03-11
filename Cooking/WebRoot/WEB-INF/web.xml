@@ -46,6 +46,11 @@
     <servlet-name>RecipeBaseDictServlet</servlet-name>
     <servlet-class>com.cooking.servlet.RecipeBaseDictServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>RecipeServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.RecipeServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>BaseServlet</servlet-name>
@@ -58,5 +63,9 @@
   <servlet-mapping>
     <servlet-name>RecipeBaseDictServlet</servlet-name>
     <url-pattern>/RecipeBaseDictServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RecipeServlet</servlet-name>
+    <url-pattern>/RecipeServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,22 +18,27 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
-import com.cooking.domain.Article;
+import com.cooking.domain.Recipe;
 import com.cooking.domain.RecipeBaseDict;
-import com.cooking.service.ArticleService;
 import com.cooking.service.RecipeBaseDictService;
-import com.cooking.service.imp.ArticleServiceImp;
+import com.cooking.service.RecipeService;
 import com.cooking.service.imp.RecipeBaseDictServiceImp;
+import com.cooking.service.imp.RecipeServiceImp;
 import com.cooking.utils.UUIDUtils;
 import com.cooking.utils.UploadUtils;
 
-
-public class ArticleServlet extends BaseServlet {
-	ArticleService aService = new ArticleServiceImp();
+public class RecipeServlet extends BaseServlet {
+	RecipeService rService = new RecipeServiceImp();
 	
-	public String addArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String addRecipePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		RecipeBaseDictService rbdService = new RecipeBaseDictServiceImp();
+		List<RecipeBaseDict> rbd = rbdService.getRBDAll();
+		request.setAttribute("rbd", rbd);
+		return "addRecipe.jsp";
+	}
+	public String addRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String,String> map=new HashMap<String,String>();
-		Article article = new Article();
+		Recipe recipe = new Recipe();
 		try {
 			DiskFileItemFactory fac=new DiskFileItemFactory();
 			ServletFileUpload upload=new ServletFileUpload(fac);
@@ -44,7 +50,7 @@ public class ArticleServlet extends BaseServlet {
 					String oldFileName=item.getName();
 					String newFileName=UploadUtils.getUUIDName(oldFileName);
 					InputStream is=item.getInputStream();
-					String realPath=getServletContext().getRealPath("/upload/");
+					String realPath=getServletContext().getRealPath("/upload/recipe");
 					String dir=UploadUtils.getDir(newFileName); 
 					String path=realPath+dir; 
 					File newDir=new File(path);
@@ -59,37 +65,19 @@ public class ArticleServlet extends BaseServlet {
 					IOUtils.copy(is, os);
 					IOUtils.closeQuietly(is);
 					IOUtils.closeQuietly(os);
-					map.put("a_img", "/upload/"+dir+"/"+newFileName);
+					map.put("r_img", "/upload/recipe"+dir+"/"+newFileName);
 				}
 			}
-			BeanUtils.populate(article, map);
-			article.setA_id(UUIDUtils.getId());
-			aService.addArticle(article);
-			response.sendRedirect("ArticleServlet?method=findArticleByPage&num=1");
+			BeanUtils.populate(recipe, map);
+			recipe.setR_id(UUIDUtils.getId());
+			recipe.setR_click("0");
+			
+			recipe.setR_time(new Date());
+			rService.addRecipe(recipe);
+			response.sendRedirect("user.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
-	}
-	
-	public String addArticlePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "addArticle.jsp";
-	}
-	
-	public String findArticleById(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
-	}
-	
-	public String findArticleByPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		response.sendRedirect("/Cooking/user.jsp");
-		return null;
-	}
-	
-	public String editArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
-	}
-	
-	public String delArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}
 }

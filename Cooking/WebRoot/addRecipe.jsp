@@ -25,49 +25,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 
-	<script type="text/javascript">
-		$(function(){
-			$.post("servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
-				var rbdParent = eval(data);
-				var rbdChild = eval(data);
-				$.each(rbdParent,function(i,item){
-	          		if(rbdParent[i].rbd_parentId == 0){
-	    				$("#rbd_parent").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
-          			}
-          			if(rbdParent[i].rbd_parentId == 1){
-          				$("#rbd_child").append("<option value='"+rbdParent[i].rbd_id+"'>"+rbdParent[i].rbd_name+"</option>");
-          			}
-				});
-			},"json");
-		});
-		
-		function getChild(){
-			$("#rbd_child").empty();
-			var rbd_id =$("#rbd_parent").val();
-			$.post("servlet/RecipeBaseDictServlet?flag=findAll",{},function(data){
-				var rbdChild = eval(data);
-   				$.each(rbdChild,function(j,tem){
-     				if(rbd_id == rbdChild[j].rbd_parentId){
-     					$("#rbd_child").append("<option value='"+rbdChild[j].rbd_id+"'>"+rbdChild[j].rbd_name+"</option>");
-     				}
-				});
-			},"json");
-		}
-	</script>
   </head>
   
   <body>
 	<center>
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
-   	<form action="servlet/RecipeServlet?flag=addRecipe" method="post">
-		<input type="hidden" name="u_id"  id="u_id"value="${user['u_id'] }">
- 		<select name="rbd_parent"  id="rbd_parent" onchange="getChild()"></select>
- 		<select name="rbd_child" id="rbd_child"></select><br />
- 		标题<input type="text" name="r_name"  id="r_name"/><br />
+   	<form action="RecipeServlet?method=addRecipe" method="post" enctype="multipart/form-data">
+ 		菜名<input type="text" name="r_name"  id="r_name"/><br />
  		简介<textarea rows="3" cols="3" name="r_information"  id="r_information"></textarea><br />
  		材料：<textarea rows="3" cols="3" name="r_material" id="r_material"></textarea><br />
  		做法：<textarea rows="3" cols="3" name="r_practice"  id="r_practice"></textarea><br />
+ 		<select name="r_RBDId">
+	     	 <c:forEach items="${rbd}" var="r">
+	     	 	<c:if test="${r.rbd_parentId != 0 }">
+	       			<option value="${r.rbd_id}">${r.rbd_name}</option>
+	       		</c:if>
+	       </c:forEach>
+	     </select>
+ 		成品图<input type="file" name="r_img"  id="r_img"/><br />
+ 		<input type="hidden" name="r_UId" id="r_UId" value="${user.u_id }">
  		<input type="submit" value="提交" />
    	</form>
    	<jsp:include page="footer.jsp"></jsp:include>
