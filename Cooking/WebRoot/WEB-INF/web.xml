@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>com.cooking.filter.EncodingFilter</filter-class>
@@ -22,6 +21,7 @@
     <filter-name>PriviledgeFilter</filter-name>
     <filter-class>com.cooking.filter.PriviledgeFilter</filter-class>
   </filter>
+  
   <filter-mapping>
     <filter-name>PriviledgeFilter</filter-name>
     <url-pattern>/user.jsp</url-pattern>
@@ -42,6 +42,10 @@
     <servlet-name>ArticleServlet</servlet-name>
     <servlet-class>com.cooking.servlet.ArticleServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>RecipeBaseDictServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.RecipeBaseDictServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>BaseServlet</servlet-name>
@@ -50,5 +54,9 @@
   <servlet-mapping>
     <servlet-name>ArticleServlet</servlet-name>
     <url-pattern>/ArticleServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RecipeBaseDictServlet</servlet-name>
+    <url-pattern>/RecipeBaseDictServlet</url-pattern>
   </servlet-mapping>
 </web-app>

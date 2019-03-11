@@ -21,11 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 var _menus = {"menus":[{"menuid":"8","icon":"icon-sys","menuname":"用户管理",
 							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"userManagement.jsp"},
 								]
-						},{"menuid":"1","icon":"icon-sys","menuname":"图片管理",
-							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"http://hxling.cnblogs.com"},
-									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"}
-								]
-						},{"menuid":"1","icon":"icon-sys","menuname":"中餐",
+						},{"menuid":"1","icon":"icon-sys","menuname":"食谱管理",
 							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"recipe.jsp"},
 									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
 									{"menuname":"鲁菜","icon":"icon-users","url":"demo2.html"},
@@ -34,25 +30,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									{"menuname":"湘菜","icon":"icon-log","url":"demo.html"},
 									{"menuname":"粤菜","icon":"icon-log","url":"demo.html"},
 									{"menuname":"浙菜","icon":"icon-log","url":"demo.html"},
-								]
-						},{"menuid":"8","icon":"icon-sys","menuname":"西餐",
-							"menus":[{"menuname":"英式西餐","icon":"icon-nav","url":"demo.html"},
+									{"menuname":"英式西餐","icon":"icon-nav","url":"demo.html"},
 									{"menuname":"意式大餐","icon":"icon-nav","url":"demo1.html"},
 									{"menuname":"美式菜肴","icon":"icon-nav","url":"demo1.html"},
 									{"menuname":"俄式大餐","icon":"icon-nav","url":"demo1.html"},
 									{"menuname":"法式大餐","icon":"icon-nav","url":"demo1.html"},
+									{"menuname":"饮品","icon":"icon-nav","url":"demo1.html"},
+									{"menuname":"甜点","icon":"icon-nav","url":"demo2.html"},
 								]
-						},{"menuid":"56","icon":"icon-sys","menuname":"饮品/甜点",
-							"menus":[{"menuname":"饮品","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"甜点","icon":"icon-nav","url":"demo2.html"}
+						},{"menuid":"28","icon":"icon-sys","menuname":"健康信息管理",
+							"menus":[{"menuname":"健康与养生","icon":"icon-nav","url":"demo.html"},
 								]
-						},{"menuid":"28","icon":"icon-sys","menuname":"健康与养生",
-							"menus":[{"menuname":"健康与养生","icon":"icon-nav","url":"demo.html"}
-									
+						},{"menuid":"28","icon":"icon-sys","menuname":"新闻管理",
+							"menus":[
+									{"menuname":"新闻公告","icon":"icon-nav","url":"demo.html"},
 								]
-						},{"menuid":"39","icon":"icon-sys","menuname":"视频中心",
+						},{"menuid":"28","icon":"icon-sys","menuname":"评论管理",
+							"menus":[
+									{"menuname":"评论管理","icon":"icon-nav","url":"demo.html"},
+								]
+						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
 							"menus":[{"menuname":"视频中心","icon":"icon-nav","url":"/shop/productcatagory.aspx"},
-									
 								]
 						}
 				]};
