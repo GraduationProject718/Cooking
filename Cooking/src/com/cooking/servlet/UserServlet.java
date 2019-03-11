@@ -45,4 +45,9 @@ public class UserServlet extends BaseServlet {
 		response.sendRedirect("/Cooking/index.jsp");
 		return null;
 	}
+	public String exit(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.getSession().invalidate();
+		response.sendRedirect("/Cooking/index.jsp");
+		return null;
+	}
 }

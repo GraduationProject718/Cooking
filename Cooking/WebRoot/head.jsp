@@ -51,6 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      				<dd><a href="addRecipe.jsp">发布菜谱</a></dd>
 		      				<dd><a href="ArticleServlet?method=addArticlePage">发布文章</a></dd>
 		      				<dd><a href="javascript:;">发布视频</a></dd>
+		      				<dd><a href="UserServlet?method=exit">退出</a></dd>
 		    			</dl>
 		  		</li>
 			</ul>
