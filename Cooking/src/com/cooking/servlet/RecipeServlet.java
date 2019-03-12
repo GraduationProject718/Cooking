@@ -38,6 +38,13 @@ public class RecipeServlet extends BaseServlet {
 		request.setAttribute("rbd", rbd);
 		return "addRecipe.jsp";
 	}
+	
+	public String findRecipeById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String r_id = request.getParameter("r_id");
+		Recipe recipe = rService.findRecipeById(r_id);
+		request.setAttribute("recipe", recipe);
+		return "recipeView.jsp";
+	}
 	public String getRecipeByRBDId(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String rbd_id = request.getParameter("rbd_id");
 		int curNum =Integer.parseInt(request.getParameter("num"));

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cooking.dao.RecipeDao;
 import com.cooking.dao.imp.RecipeDaoImp;
+import com.cooking.domain.Article;
 import com.cooking.domain.PageModel;
 import com.cooking.domain.Recipe;
 import com.cooking.service.RecipeService;
@@ -52,6 +53,15 @@ public class RecipeServiceImp implements RecipeService {
 	public List<Recipe> getXiCan() throws Exception {
 		return rDao.getXiCan();
 	}
+	@Override
+	public List<Recipe> getRecipeByUId(String u_id) throws Exception {
+		return rDao.getRecipeByUId(u_id);
+	}
+	@Override
+	public Recipe findRecipeById(String r_id) throws Exception {
+		return rDao.findRecipeById(r_id);
+	}
+
 	
 
 }

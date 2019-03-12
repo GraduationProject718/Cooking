@@ -1,13 +1,23 @@
 package com.cooking.servlet;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cooking.domain.Article;
+import com.cooking.domain.Recipe;
 import com.cooking.domain.User;
+import com.cooking.domain.Videos;
+import com.cooking.service.ArticleService;
+import com.cooking.service.RecipeService;
 import com.cooking.service.UserService;
+import com.cooking.service.VideosService;
+import com.cooking.service.imp.ArticleServiceImp;
+import com.cooking.service.imp.RecipeServiceImp;
 import com.cooking.service.imp.UserServiceImp;
+import com.cooking.service.imp.VideosServiceImp;
 import com.cooking.utils.UUIDUtils;
 
 public class UserServlet extends BaseServlet {
@@ -36,18 +46,36 @@ public class UserServlet extends BaseServlet {
 		response.sendRedirect("/Cooking/login.jsp");
 		return null;
 	}
+	public String addUserDate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String u_id = request.getParameter("u_id");
+		
+		RecipeService rService = new RecipeServiceImp();
+		List<Recipe> userRecipe = rService.getRecipeByUId(u_id);
+		request.setAttribute("userRecipe", userRecipe);
+		
+		ArticleService aService = new ArticleServiceImp();
+		List<Article> userArticle = aService.getArticleByUId(u_id);
+		request.setAttribute("userArticle", userArticle);
+		
+		VideosService vService = new VideosServiceImp();
+		List<Videos> userVideos = vService.getVidesByUId(u_id);
+		request.setAttribute("userVideos", userVideos);
+		
+		response.sendRedirect("user.jsp");
+		return null;
+	}
 	
 	public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String u_account = request.getParameter("u_account");
 		String u_password = request.getParameter("u_password");
 		User user = uService.login(u_account,u_password);
 		request.getSession().setAttribute("user", user);
-		response.sendRedirect("/Cooking/index.jsp");
+		response.sendRedirect("/Cooking/firstIndex.jsp");
 		return null;
 	}
 	public String exit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.getSession().invalidate();
-		response.sendRedirect("/Cooking/index.jsp");
+		response.sendRedirect("/Cooking/firstIndex.jsp");
 		return null;
 	}
 }

@@ -37,4 +37,11 @@ public class VideosDaoImp implements VideosDao {
 
 	}
 
+	@Override
+	public List<Videos> getVidesByUId(String u_id) throws Exception {
+		String sql = "select * from videos where v_UId=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Videos>(Videos.class),u_id);
+	}
+
 }

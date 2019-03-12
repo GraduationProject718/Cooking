@@ -12,4 +12,6 @@ public interface ArticleDao {
 
 	List<Article> getArticleBytype(int startIndex, int pageSize, String a_type) throws Exception;
 
+	List<Article> getArticleByUId(String u_id) throws Exception;
+
 }

@@ -37,4 +37,11 @@ public class ArticleDaoImp implements ArticleDao {
 
 	}
 
+	@Override
+	public List<Article> getArticleByUId(String u_id) throws Exception {
+		String sql = "select * from article where a_UId=? ";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Article>(Article.class),u_id);
+	}
+
 }

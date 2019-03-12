@@ -65,26 +65,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
 	    	<div class="layui-row layui-col-space10">
-			  <c:forEach items="${tuijian}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
-			 </c:forEach>
+	    	<table>
+	    		<tr>
+	    		<c:forEach items="${tuijian}" var="r" varStatus="status">
+	    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+	    		</c:forEach>
+	    		</tr>
+	    	</table>
 			</div>
 	    </div>
 	    <div class="layui-tab-item">
+	    	<table>
+	    	<tr>
 			<c:forEach items="${remen}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name }
-				${r.r_information }<br />
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
+			</tr>
+	    	</table>
 		</div>
 	    <div class="layui-tab-item">
-			<c:forEach items="${zuixin}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
-			 </c:forEach>
+	    <table>
+	    <tr>
+		<c:forEach items="${zuixin}" var="r" varStatus="status">
+			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+		 </c:forEach>
+		 </tr>
+    	</table>
 		</div>
 	  </div>
 	</div>
@@ -96,11 +102,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
-			<c:forEach items="${zhongcan}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
-			 </c:forEach>
+	    <table>
+	    <tr>
+		<c:forEach items="${zhongcan}" var="r" varStatus="status">
+			<c:if test="${status.count < 4 }">
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+		 	</c:if>
+		 </c:forEach>
+		</tr>
+		<tr>
+		<c:forEach items="${zhongcan}" var="r" varStatus="status">
+			<c:if test="${status.count >= 4 }">
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+		 	</c:if>
+		 </c:forEach>
+		</tr>
+    	</table>
 		</div>
 	  </div>
 	</div>
@@ -113,11 +130,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
+			<table>
+		    <tr>
 			<c:forEach items="${xican}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
+				<c:if test="${status.count < 4 }">
+					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+			 	</c:if>
 			 </c:forEach>
+			</tr>
+			<tr>
+			<c:forEach items="${zhongcan}" var="r" varStatus="status">
+				<c:if test="${status.count >= 4 }">
+					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+			 	</c:if>
+			 </c:forEach>
+			</tr>
+	    	</table>
+			 
 		</div>
 	  </div>
 	</div>
@@ -129,11 +158,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
+			 <table>
+		    <tr>
 			<c:forEach items="${yinpin}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
+			 </tr>
+	    	</table>
 		</div>
 	  </div>
 	</div>
@@ -145,11 +176,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
+			  <table>
+		    <tr>
 			<c:forEach items="${tiandian}" var="r" varStatus="status">
-				<img style="width:50px;height:50px;" src="${pageContext.request.contextPath}/${r.r_img }">
-				${r.r_name } 
-				${r.r_information }<br />
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
+			 </tr>
+	    	</table>
 		</div>
 	  </div>
 	</div>

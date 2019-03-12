@@ -84,7 +84,7 @@
 					</script>
 
 					<div class="bxs-row">
-						<input type="submit" class="submit btn" value="登录">
+						<input type="submit" class="submit btn" value="注册" />
 					</div>
 				</div>
 

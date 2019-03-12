@@ -29,5 +29,10 @@ public class ArticleServiceImp implements ArticleService {
 		pm.setUrl("ArticleServlet?method=getArticleBytype&type="+a_type);
 		return pm;
 	}
+	@Override
+	public List<Article> getArticleByUId(String u_id) throws Exception {
+		return aDao.getArticleByUId(u_id);
+	}
 
+	
 }

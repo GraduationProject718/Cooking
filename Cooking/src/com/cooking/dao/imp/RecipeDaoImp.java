@@ -3,12 +3,15 @@ package com.cooking.dao.imp;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.cooking.dao.RecipeDao;
+import com.cooking.domain.Article;
 import com.cooking.domain.Recipe;
 import com.cooking.domain.RecipeBaseDict;
+import com.cooking.domain.User;
 import com.cooking.utils.JDBCUtils;
 
 public class RecipeDaoImp implements RecipeDao {
@@ -53,21 +56,21 @@ public class RecipeDaoImp implements RecipeDao {
 
 	@Override
 	public List<Recipe> getReMen() throws Exception {
-		String sql = "select * from recipe order by r_click desc limit 0,6";
+		String sql = "select * from recipe order by r_click desc limit 0,3";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
 
 	@Override
 	public List<Recipe> getZuiXin() throws Exception {
-		String sql = "select * from recipe order by r_time desc limit 0,6";
+		String sql = "select * from recipe order by r_time desc limit 0,3";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
 
 	@Override
 	public List<Recipe> getTuiJian() throws Exception {
-		String sql = "select * from recipe order by r_id desc limit 0,6";
+		String sql = "select * from recipe order by r_id desc limit 0,3";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
@@ -85,5 +88,21 @@ public class RecipeDaoImp implements RecipeDao {
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),"13","14","15","16","17");
 	}
+
+	@Override
+	public List<Recipe> getRecipeByUId(String u_id) throws Exception {
+		String sql = "select * from recipe where r_UId=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),u_id);
+	}
+
+	@Override
+	public Recipe findRecipeById(String r_id) throws Exception {
+		String sql = "select * from recipe where r_id = ?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanHandler<Recipe>(Recipe.class),r_id);
+	}
+
+
 
 }

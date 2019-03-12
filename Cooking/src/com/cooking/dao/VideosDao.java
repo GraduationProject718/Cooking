@@ -12,4 +12,6 @@ public interface VideosDao {
 
 	List<Videos> getVideosByMenu(int startIndex, int pageSize) throws Exception;
 
+	List<Videos> getVidesByUId(String u_id)  throws Exception;
+
 }

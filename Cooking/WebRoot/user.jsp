@@ -22,15 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 	<link rel="stylesheet" href="css/index.css" >
 	<link rel="stylesheet" href="css/changeImg.css" >
-	<script type="text/javascript">
-		/* 我的文章 */
-		$(function(){
-			var u_id = $("#uid").val();
-			$.post("servlet/ArticleServlet?flag=myArticle",{"u_id":u_id},function(data){
-				
-			},"");	
-		});
-	</script>
+	
   </head>
   
   <body>
@@ -140,7 +132,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <li class="layui-this">我的菜谱</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item layui-show">
+	    	<table>
+	    		<tr>
+	    		<c:forEach items="${userRecipe}" var="r" varStatus="status">
+	    			<c:if test="${status.count <4 }">
+	    			<td><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></td>
+	    			</c:if>
+	    		</c:forEach>
+	    		</tr>
+	    	</table>
+	    </div>
 	  </div>
 	</div>
 		 
@@ -151,21 +153,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show" id="myArticle">
-			<c:forEach items="${myArticle}" var="a">
-				${a.a_title} ${a.a_time}<br />
-			</c:forEach>
+			<table>
+	    		<tr>
+	    		<c:forEach items="${userArticle}" var="a" varStatus="status">
+	    			<c:if test="${status.count <4 }">
+	    			<td><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${a.a_img }"><br><center>${a.a_title }</center><br /></td>
+	    			</c:if>
+	    		</c:forEach>
+	    		</tr>
+	    	</table>
 		</div>
 	  </div>
 	</div>
 		 
 	<!-- 我的视频 -->	
-	<!--中餐--> 
 	<div class="layui-tab">
 	  <ul class="layui-tab-title">
 	    <li class="layui-this">我的视频</li>
 	  </ul>
 	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">2*3</div>
+	    <div class="layui-tab-item layui-show">
+			<table>
+	    		<tr>
+	    		<c:forEach items="${userVideos}" var="v" varStatus="status">
+	    			<c:if test="${status.count <4 }">
+	    			<td><video src="${pageContext.request.contextPath}/${v.v_url}" style="width:330px;height:200px;margin-top:10px;" controls="controls"></video></td>
+	    			</c:if>
+	    		</c:forEach>
+	    		</tr>
+	    	</table>
+		</div>
 	  </div>
 	</div>
 	

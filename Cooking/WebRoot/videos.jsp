@@ -22,17 +22,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <center>
   	<div class="container">
    		<jsp:include page="head.jsp"></jsp:include>
+   			<table>
+   			<tr>
   			<c:forEach items="${page.list}" var="v" varStatus="status">
-  				<video src="${pageContext.request.contextPath}/${v.v_url}" style="width:280px;height:172px;" controls="controls"></video>
-			${v.v_name }
-			<br />
+  				<c:if test="${status.count <4 }">
+  				<td>
+  					<video src="${pageContext.request.contextPath}/${v.v_url}" style="width:330px;height:200px;margin-top:10px;" controls="controls"></video>
+  					<br />
+					<center>${v.v_name }</center>
+					<br />
+				</td>
+				</c:if>
 		   </c:forEach>
+		   </tr>
+		   <tr>
+  			<c:forEach items="${page.list}" var="v" varStatus="status">
+  				<c:if test="${status.count >= 4 }">
+  				<td>
+  					<video src="${pageContext.request.contextPath}/${v.v_url}" style="width:330px;height:200px;margin-top:10px;" controls="controls"></video>
+  					<br />
+					<center>${v.v_name }</center>
+					<br />
+				</td>
+				</c:if>
+		   </c:forEach>
+		   </tr>
+		   </table>
 		   <jsp:include page="pageFile.jsp"></jsp:include>
    		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-	</center>
   </body>
 </html>

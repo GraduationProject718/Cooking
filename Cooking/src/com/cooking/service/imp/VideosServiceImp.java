@@ -17,11 +17,15 @@ public class VideosServiceImp implements VideosService {
 	@Override
 	public PageModel getVideosByMenu(int curNum) throws Exception {
 		int totalRecords =vDao.findTotalRecords();
-		PageModel pm = new PageModel(curNum,totalRecords,5);
+		PageModel pm = new PageModel(curNum,totalRecords,6);
 		List<Videos> list = vDao.getVideosByMenu(pm.getStartIndex(),pm.getPageSize());
 		pm.setList(list);
 		pm.setUrl("VideosServlet?method=getVideosByMenu");
 		return pm;
+	}
+	@Override
+	public List<Videos> getVidesByUId(String u_id) throws Exception {
+		return vDao.getVidesByUId(u_id);
 	}
 	
 }

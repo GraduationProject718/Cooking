@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>烹饪技术学习网</title>
+    <title>食谱查看</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,16 +21,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="container">
+  	<div class="container">
   	<jsp:include page="head.jsp"></jsp:include>
-  	<c:forEach items="${page.list}" var="a" varStatus="status">
-  		<div style="border:2px solid black; width:85%;margin-top:10px;">
-			<img style="width:200px;height:150px;margin-top:10px;" src="${pageContext.request.contextPath}/${a.a_img }">
-			${a.a_title }<br />
-		</div>
-	    </c:forEach>
-	    <jsp:include page="pageFile.jsp"></jsp:include>
-	    <jsp:include page="footer.jsp"></jsp:include>
-	    </div>
+  		<img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${recipe.r_img }">
+  		<br>
+  		${recipe.r_name }<br />
+  		${recipe.r_information }<br />
+  		${recipe.r_material }<br />
+  		${recipe.r_practice }<br />
+  		${recipe.r_time }<br />
+    <jsp:include page="footer.jsp"></jsp:include>
+    </div>
   </body>
 </html>

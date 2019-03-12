@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<c:if test="${not empty user }">
 	   	<div class="user">
 	   		<ul class="layui-nav">
-		  		<li class="layui-nav-item"><a href="user.jsp">个人中心</a></li>
+		  		<li class="layui-nav-item"><a href="UserServlet?method=addUserDate&u_id=${user.u_id}">个人中心</a></li>
 		  		<li class="layui-nav-item">
 		    		<a href="user.jsp"><img src="${pageContext.request.contextPath}/${user.u_img}" class="layui-nav-img"> ${user.u_nickname }</a>
 		    			<dl class="layui-nav-child">
