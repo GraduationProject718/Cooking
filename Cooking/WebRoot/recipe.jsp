@@ -29,9 +29,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="container">
   	<jsp:include page="head.jsp"></jsp:include>
 	    <table>
+	    	<tr>
+    		<c:forEach items="${page.list}" var="r" varStatus="status">
+    			<c:if test="${status.count < 4 }">
+    				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+    			</c:if>
+    		</c:forEach>
+    		</tr>
     		<tr>
     		<c:forEach items="${page.list}" var="r" varStatus="status">
-    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+    			<c:if test="${status.count >= 4 }">
+    				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+    			</c:if>
     		</c:forEach>
     		</tr>
     	</table>
