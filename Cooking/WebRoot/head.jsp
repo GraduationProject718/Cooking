@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
 	<script type="text/javascript" src="layui/layui.js"></script>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/bootstrap.min.js"></script>
 	<style>
 		.layui-container{
