@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<div class="container">
    	<jsp:include page="head.jsp"></jsp:include>
-		
+		 
 	<!--滚动图片-->
 	<div class="layui-carousel" id="test1" >
 	  <div carousel-item>
