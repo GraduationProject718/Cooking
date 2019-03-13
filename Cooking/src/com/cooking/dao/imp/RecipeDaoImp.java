@@ -23,6 +23,14 @@ public class RecipeDaoImp implements RecipeDao {
 		Object[] params={recipe.getR_id(),recipe.getR_name(),recipe.getR_information(),recipe.getR_img(),recipe.getR_material(),recipe.getR_practice(),recipe.getR_click(),recipe.getR_time(),recipe.getR_UId(),recipe.getR_RBDId()};
 		qr.update(sql,params);
 	}
+	
+	@Override
+	public void editRecipe(Recipe recipe) throws Exception {
+		String sql="UPDATE recipe SET r_name=?, r_information=?, r_material=?, r_practice=?, r_RBDId=? WHERE r_id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={recipe.getR_name(),recipe.getR_information(),recipe.getR_material(),recipe.getR_practice(),recipe.getR_RBDId(),recipe.getR_id()};
+		qr.update(sql,params);
+	}
 
 	@Override
 	public int findTotalRecords(String rbd_id) throws Exception{
@@ -33,10 +41,26 @@ public class RecipeDaoImp implements RecipeDao {
 	}
 
 	@Override
+	public int findTotalRecordsByPage() throws Exception {
+		String sql = "select count(*) from recipe";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler());
+		return num.intValue();
+	}
+
+	@Override
 	public List<Recipe> getRecipeByRBDId(int startIndex, int pageSize, String rbd_id) throws Exception {
 		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit ?,?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),rbd_id,startIndex,pageSize);
+	}
+
+	@Override
+	public List<Recipe> findRecipeByPage(int startIndex, int pageSize) throws Exception {
+		String sql = "select * from recipe  order by r_time desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),startIndex,pageSize);
+
 	}
 
 	@Override

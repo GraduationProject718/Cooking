@@ -31,12 +31,35 @@ import com.cooking.utils.UploadUtils;
 
 public class RecipeServlet extends BaseServlet {
 	RecipeService rService = new RecipeServiceImp();
-	
+	public String delRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String r_id = request.getParameter("r_id");
+		rService.delRecipe(r_id);
+		response.sendRedirect("RecipeServlet?method=findRecipeByPage&num=1");
+		return null;
+	}
+	public String editRecipeById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String r_id = request.getParameter("r_id");
+		Recipe recipe = rService.findRecipeById(r_id);
+		request.setAttribute("recipe", recipe);
+		RecipeBaseDictService rbdService = new RecipeBaseDictServiceImp();
+		List<RecipeBaseDict> rbd = rbdService.getRBDAll();
+		request.setAttribute("rbd", rbd);
+		return "/administrator/recipe/editRecipe.jsp";
+	}
+	public String findRecipeByPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		RecipeBaseDictService rbdService = new RecipeBaseDictServiceImp();
+		List<RecipeBaseDict> rbd = rbdService.getRBDAll();
+		request.setAttribute("rbd", rbd);
+		PageModel pm = rService.findRecipeByPage(curNum);
+		request.setAttribute("page", pm);
+		return "/administrator/recipe/listRecipe.jsp";
+	}
 	public String addRecipePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecipeBaseDictService rbdService = new RecipeBaseDictServiceImp();
 		List<RecipeBaseDict> rbd = rbdService.getRBDAll();
 		request.setAttribute("rbd", rbd);
-		return "addRecipe.jsp";
+		return "/administrator/recipe/addRecipe.jsp";
 	}
 	
 	public String findRecipeById(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -51,6 +74,46 @@ public class RecipeServlet extends BaseServlet {
 		PageModel pm = rService.getRecipeByRBDId(curNum,rbd_id);
 		request.setAttribute("page", pm);
 		return "recipe.jsp";
+	}
+	public String editRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Map<String,String> map=new HashMap<String,String>();
+		Recipe recipe = new Recipe();
+		try {
+			DiskFileItemFactory fac=new DiskFileItemFactory();
+			ServletFileUpload upload=new ServletFileUpload(fac);
+			List<FileItem> list=upload.parseRequest(request);
+			for (FileItem item : list) {
+				if(item.isFormField()){
+					map.put(item.getFieldName(), item.getString("utf-8"));
+				}else{
+					String oldFileName=item.getName();
+					String newFileName=UploadUtils.getUUIDName(oldFileName);
+					InputStream is=item.getInputStream();
+					String realPath=getServletContext().getRealPath("/upload/recipe");
+					String dir=UploadUtils.getDir(newFileName); 
+					String path=realPath+dir; 
+					File newDir=new File(path);
+					if(!newDir.exists()){
+						newDir.mkdirs();
+					}
+					File finalFile=new File(newDir,newFileName);
+					if(!finalFile.exists()){
+						finalFile.createNewFile();
+					}
+					OutputStream os=new FileOutputStream(finalFile);
+					IOUtils.copy(is, os);
+					IOUtils.closeQuietly(is);
+					IOUtils.closeQuietly(os);
+					map.put("r_img", "/upload/recipe"+dir+"/"+newFileName);
+				}
+			}
+			BeanUtils.populate(recipe, map);
+			rService.editRecipe(recipe);
+			response.sendRedirect("RecipeServlet?method=findRecipeByPage&num=1");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public String addRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -91,7 +154,7 @@ public class RecipeServlet extends BaseServlet {
 			
 			recipe.setR_time(new Date());
 			rService.addRecipe(recipe);
-			response.sendRedirect("user.jsp");
+			response.sendRedirect("RecipeServlet?method=findRecipeByPage&num=1");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

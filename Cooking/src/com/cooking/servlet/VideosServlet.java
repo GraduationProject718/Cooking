@@ -28,13 +28,26 @@ public class VideosServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	VideosService vService = new VideosServiceImp();
 	public String addVideosPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return "addVideos.jsp";
+		return "/administrator/videos/addVideos.jsp";
+	}
+	public String delVideos(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String v_id = request.getParameter("v_id");
+		vService.delVideos(v_id);
+		response.sendRedirect("VideosServlet?method=getVideosByAdmin&num=1");
+		return null;
 	}
 	public String getVideosByMenu(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int curNum =Integer.parseInt(request.getParameter("num"));
 		PageModel pm = vService.getVideosByMenu(curNum);
 		request.setAttribute("page", pm);
 		return "videos.jsp";
+	}
+	
+	public String getVideosByAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum =Integer.parseInt(request.getParameter("num"));
+		PageModel pm = vService.getVideosByAdmin(curNum);
+		request.setAttribute("page", pm);
+		return "/administrator/videos/listVideos.jsp";
 	}
 	public String addVideos(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String,String> map=new HashMap<String,String>();
@@ -71,7 +84,7 @@ public class VideosServlet extends BaseServlet {
 			BeanUtils.populate(videos, map);
 			videos.setV_id(UUIDUtils.getId());
 			vService.addVideos(videos);
-			response.sendRedirect("user.jsp");
+			response.sendRedirect("/administrator/videos/addVideos.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

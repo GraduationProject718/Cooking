@@ -31,6 +31,12 @@ public interface RecipeDao {
 
 	Recipe findRecipeById(String r_id) throws Exception;
 
+	int findTotalRecordsByPage() throws Exception;
+
+	List<Recipe> findRecipeByPage(int startIndex, int pageSize)throws Exception;
+
+	void editRecipe(Recipe recipe) throws Exception;
+
 	
 
 }

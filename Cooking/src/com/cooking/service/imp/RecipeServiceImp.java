@@ -2,12 +2,15 @@ package com.cooking.service.imp;
 
 import java.util.List;
 
+import org.apache.commons.dbutils.QueryRunner;
+
 import com.cooking.dao.RecipeDao;
 import com.cooking.dao.imp.RecipeDaoImp;
 import com.cooking.domain.Article;
 import com.cooking.domain.PageModel;
 import com.cooking.domain.Recipe;
 import com.cooking.service.RecipeService;
+import com.cooking.utils.JDBCUtils;
 
 
 public class RecipeServiceImp implements RecipeService {
@@ -16,6 +19,29 @@ public class RecipeServiceImp implements RecipeService {
 	public void addRecipe(Recipe recipe) throws Exception {
 		rDao.addRecipe(recipe);
 	}
+	
+	@Override
+	public void editRecipe(Recipe recipe) throws Exception {
+		rDao.editRecipe(recipe);
+	}
+
+	@Override
+	public void delRecipe(String r_id) throws Exception {
+		String sql = "delete from recipe where r_id = ?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,r_id);
+	}
+
+	@Override
+	public PageModel findRecipeByPage(int curNum) throws Exception {
+		int totalRecords =rDao.findTotalRecordsByPage();
+		PageModel pm = new PageModel(curNum,totalRecords,9);
+		List<Recipe> list = rDao.findRecipeByPage(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("RecipeServlet?method=findRecipeByPage");
+		return pm;	
+	}
+
 	@Override
 	public PageModel getRecipeByRBDId(int curNum, String rbd_id) throws Exception {
 		int totalRecords =rDao.findTotalRecords(rbd_id);

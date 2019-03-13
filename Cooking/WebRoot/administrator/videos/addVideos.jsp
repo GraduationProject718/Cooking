@@ -29,10 +29,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	<div class="container">
-   	<jsp:include page="head.jsp"></jsp:include>
    	<div style="background-image: url('images/bg.jpg');background-size: 100%;width:85%;height:70%;padding:50px;">
    	<form class="layui-form" action="VideosServlet?method=addVideos" method="post" enctype="multipart/form-data">
-	  	<input type="hidden" name="v_UId" id="v_UId" value="${user.u_id }">
+	  	<%-- <input type="hidden" name="v_UId" id="v_UId" value="${user.u_id }"> --%>
+	  	<input type="hidden" name="v_UId" id="v_UId" value="0" />
 	  <div class="layui-form-item">
 	    <label class="layui-form-label" style="width:100px;"><b>视频名称</b></label>
 	    <div class="layui-input-block">
@@ -54,7 +54,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  </div>
 	</form>
 	 </div>
-   	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
 		
   </body>

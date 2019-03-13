@@ -18,20 +18,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="css/index.css">
-
+	<style type="text/css">
+		.articleDiv{
+			border:2px solid black; margin-top:10px;display: block;
+		}
+		.articleDiv img{
+			width:410px;
+			height:250px;
+			margin:10px;
+			display: block;
+		}
+		.article{
+			width:810px;
+			margin:20px;
+			padding:20px;
+		}
+	</style>
   </head>
   
   <body>
     <div class="container">
   	<jsp:include page="head.jsp"></jsp:include>
+  	<table>
   	<c:forEach items="${page.list}" var="a" varStatus="status">
-  		<div style="border:2px solid black; width:85%;margin-top:10px;">
-			<img style="width:200px;height:150px;margin-top:10px;" src="${pageContext.request.contextPath}/${a.a_img }">
+  	<tr class="articleDiv">
+  		<td>
+			<img src="${pageContext.request.contextPath}/${a.a_img }">
+		</td>
+		<td class="article" valign="top" >
 			${a.a_title }<br />
-		</div>
-	    </c:forEach>
-	    <jsp:include page="pageFile.jsp"></jsp:include>
-	    <jsp:include page="footer.jsp"></jsp:include>
-	    </div>
+		</td>
+    </tr>
+    </c:forEach>
+  	</table>
+    <jsp:include page="pageFile.jsp"></jsp:include>
+    <jsp:include page="footer.jsp"></jsp:include>
+    </div>
   </body>
 </html>

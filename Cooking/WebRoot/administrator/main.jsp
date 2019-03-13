@@ -22,35 +22,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"userManagement.jsp"},
 								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"食谱管理",
-							"menus":[{"menuname":"川菜","icon":"icon-nav","url":"recipe.jsp"},
-									{"menuname":"徽菜","icon":"icon-add","url":"demo.html"},
-									{"menuname":"鲁菜","icon":"icon-users","url":"demo2.html"},
-									{"menuname":"闽菜","icon":"icon-role","url":"demo2.html"},
-									{"menuname":"苏菜","icon":"icon-set","url":"demo.html"},
-									{"menuname":"湘菜","icon":"icon-log","url":"demo.html"},
-									{"menuname":"粤菜","icon":"icon-log","url":"demo.html"},
-									{"menuname":"浙菜","icon":"icon-log","url":"demo.html"},
-									{"menuname":"英式西餐","icon":"icon-nav","url":"demo.html"},
-									{"menuname":"意式大餐","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"美式菜肴","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"俄式大餐","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"法式大餐","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"饮品","icon":"icon-nav","url":"demo1.html"},
-									{"menuname":"甜点","icon":"icon-nav","url":"demo2.html"},
+							"menus":[{"menuname":"添加食谱","icon":"icon-nav","url":"${pageContext.request.contextPath}/RecipeServlet?method=addRecipePage"},
+									{"menuname":"食谱查看","icon":"icon-add","url":"${pageContext.request.contextPath}/RecipeServlet?method=findRecipeByPage&num=1"},
+									
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"健康信息管理",
-							"menus":[{"menuname":"健康与养生","icon":"icon-nav","url":"demo.html"},
+							"menus":[{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=health"},
+									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=health"},
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"新闻管理",
 							"menus":[
-									{"menuname":"新闻公告","icon":"icon-nav","url":"demo.html"},
+									{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
+									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"评论管理",
 							"menus":[
 									{"menuname":"评论管理","icon":"icon-nav","url":"demo.html"},
 								]
 						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
-							"menus":[{"menuname":"视频中心","icon":"icon-nav","url":"/shop/productcatagory.aspx"},
+							"menus":[{"menuname":"添加视频","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},
+									{"menuname":"视频查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=getVideosByAdmin&num=1"},
 								]
 						}
 				]};

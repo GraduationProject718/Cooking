@@ -18,7 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="css/index.css">
-
+	<style type="text/css">
+		.recipeImg{
+			width:410px;height:250px;margin-top:20px;margin-right:20px;
+		}
+	</style>
   </head>
   
   <body>
@@ -27,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <table>
     		<tr>
     		<c:forEach items="${page.list}" var="r" varStatus="status">
-    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-top:20px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
     		</c:forEach>
     		</tr>
     	</table>

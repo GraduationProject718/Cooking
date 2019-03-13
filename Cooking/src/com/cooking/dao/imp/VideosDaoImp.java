@@ -20,6 +20,13 @@ public class VideosDaoImp implements VideosDao {
 		Object[] params={videos.getV_id(),videos.getV_name(),videos.getV_url(),videos.getV_UId()};
 		qr.update(sql,params);
 	}
+	
+	@Override
+	public void delVideos(String v_id) throws Exception {
+		String sql = "delete from videos where v_id = ?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,v_id);
+	}
 
 	@Override
 	public int findTotalRecords() throws Exception {

@@ -14,6 +14,14 @@ public class VideosServiceImp implements VideosService {
 	public void addVideos(Videos videos) throws Exception {
 		vDao.addVideos(videos);
 	}
+	
+	
+	@Override
+	public void delVideos(String v_id) throws Exception {
+		vDao.delVideos(v_id);
+	}
+
+
 	@Override
 	public PageModel getVideosByMenu(int curNum) throws Exception {
 		int totalRecords =vDao.findTotalRecords();
@@ -21,6 +29,17 @@ public class VideosServiceImp implements VideosService {
 		List<Videos> list = vDao.getVideosByMenu(pm.getStartIndex(),pm.getPageSize());
 		pm.setList(list);
 		pm.setUrl("VideosServlet?method=getVideosByMenu");
+		return pm;
+	}
+	
+	
+	@Override
+	public PageModel getVideosByAdmin(int curNum) throws Exception {
+		int totalRecords =vDao.findTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,9);
+		List<Videos> list = vDao.getVideosByMenu(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("VideosServlet?method=getVideosByAdmin");
 		return pm;
 	}
 	@Override

@@ -18,7 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-
+	<style type="text/css">
+		.videos{
+			width:410px;height:250px;margin-top:10px;margin-right:20px;
+		}
+	</style>
   </head>
   
   <body>
@@ -29,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<c:forEach items="${page.list}" var="v" varStatus="status">
   				<c:if test="${status.count <4 }">
   				<td>
-  					<video src="${pageContext.request.contextPath}/${v.v_url}" style="width:330px;height:200px;margin-top:10px;" controls="controls"></video>
+  					<video src="${pageContext.request.contextPath}/${v.v_url}" class="videos" controls="controls"></video>
   					<br />
 					<center>${v.v_name }</center>
 					<br />
@@ -41,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<c:forEach items="${page.list}" var="v" varStatus="status">
   				<c:if test="${status.count >= 4 }">
   				<td>
-  					<video src="${pageContext.request.contextPath}/${v.v_url}" style="width:330px;height:200px;margin-top:10px;" controls="controls"></video>
+  					<video src="${pageContext.request.contextPath}/${v.v_url}" class="videos" controls="controls"></video>
   					<br />
 					<center>${v.v_name }</center>
 					<br />

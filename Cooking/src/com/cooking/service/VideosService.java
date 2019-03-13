@@ -13,4 +13,8 @@ public interface VideosService {
 
 	List<Videos> getVidesByUId(String u_id) throws Exception;
 
+	PageModel getVideosByAdmin(int curNum) throws Exception;
+
+	void delVideos(String v_id) throws Exception;
+
 }

@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="layui/css/layui.css" media="all">
     
 	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<script type="text/javascript" src="layui/layui.js"></script>
 	
 	<script type="text/javascript">
 		$(function(){
@@ -37,12 +37,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   	<div class="container">
-   	<jsp:include page="head.jsp"></jsp:include>
-   	<form action="ArticleServlet?method=addArticle" method="post" enctype="multipart/form-data">
-		<textarea name="a_content" id="a_content" style="width: 90%; height: 100%;"></textarea>
+   	<form action="ArticleServlet?method=editArticle" method="post" enctype="multipart/form-data">
+		<textarea name="a_content" id="a_content" style="width: 90%; height: 100%;">${article.a_content }</textarea>
    		<h3><input style="margin:20px;" class="layui-btn layui-btn-normal" value="编辑完成" data-toggle="modal" data-target="#addArticle"><i class="layui-icon"/></h3>
    		<!-- 添加 文章begin --><!-- 模态框（Modal） -->
-  	
 		<div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -51,27 +49,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-						<input type="hidden" name="a_UId" id="a_UId" value="${user.u_id }">
-		 				<label>输入标题</label><input class="layui-input" type="text" name="a_title" id="a_title" /><br />
-						<label>输入时间</label><input class="layui-input" type="text" name="a_time" id="a_time"/>
+						<%-- <input type="hidden" name="a_UId" id="a_UId" value="${user.u_id }"> --%>
+						<input type="hidden" name="a_UId" id="a_UId" value="0">
+						<input type="hidden" name="a_id" id="a_id" value="${article.a_id }">
+		 				<label>输入标题</label><input class="layui-input" type="text" name="a_title" id="a_title" value="${article.a_title }" /><br />
+						<label>输入时间</label><input class="layui-input" type="text" name="a_time" id="a_time" value="${article.a_time }"/>
 						<label>食谱</label>
 						<select name="a_type">
-			       			<option value="health">健康与养生</option>
-			       			<option value="news">新闻公告</option>
+			       			<option value="health" selected="selected">健康与养生</option>
 					     </select>
 					     <br />
-					     <label>选择封面</label><input class="layui-input" type="file" name="a_img" id="a_img"/>
+					     <input type="hidden"  name="a_img" id="a_img" value="${article.a_img }" />
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-						<button type="submit" class="btn btn-primary" id="saveArticle" >确定</button>
+						<button type="submit" class="btn btn-primary" >确定</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal -->
 		</div>
 	</form>
-	
-   	<jsp:include page="footer.jsp"></jsp:include>
    	</div>
+   	
+   	<script type="text/javascript" src="layui/layui.js"></script>
+	<script>
+	layui.use('laydate', function(){
+	  var laydate = layui.laydate;
+	  
+	  laydate.render({
+	    elem: '#a_time' //指定元素
+	  });
+	});
+	</script>
   </body>
 </html>

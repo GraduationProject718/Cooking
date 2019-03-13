@@ -23,6 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.layui-tab{
 			width:80%;
 		}
+		.recipeImg{
+			width:410px;height:250px;margin-right:20px;
+		}
 	</style>
   </head>
   
@@ -68,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<table>
 	    		<tr>
 	    		<c:forEach items="${tuijian}" var="r" varStatus="status">
-	    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+	    			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 	    		</c:forEach>
 	    		</tr>
 	    	</table>
@@ -78,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<table>
 	    	<tr>
 			<c:forEach items="${remen}" var="r" varStatus="status">
-				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
 			</tr>
 	    	</table>
@@ -87,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <table>
 	    <tr>
 		<c:forEach items="${zuixin}" var="r" varStatus="status">
-			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+			<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 		 </c:forEach>
 		 </tr>
     	</table>
@@ -106,14 +109,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <tr>
 		<c:forEach items="${zhongcan}" var="r" varStatus="status">
 			<c:if test="${status.count < 4 }">
-				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 		 	</c:if>
 		 </c:forEach>
 		</tr>
 		<tr>
 		<c:forEach items="${zhongcan}" var="r" varStatus="status">
 			<c:if test="${status.count >= 4 }">
-				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 		 	</c:if>
 		 </c:forEach>
 		</tr>
@@ -134,14 +137,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    <tr>
 			<c:forEach items="${xican}" var="r" varStatus="status">
 				<c:if test="${status.count < 4 }">
-					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 	</c:if>
 			 </c:forEach>
 			</tr>
 			<tr>
 			<c:forEach items="${zhongcan}" var="r" varStatus="status">
 				<c:if test="${status.count >= 4 }">
-					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 	</c:if>
 			 </c:forEach>
 			</tr>
@@ -161,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 <table>
 		    <tr>
 			<c:forEach items="${yinpin}" var="r" varStatus="status">
-				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
 			 </tr>
 	    	</table>
@@ -179,7 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <table>
 		    <tr>
 			<c:forEach items="${tiandian}" var="r" varStatus="status">
-				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
+				<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 </c:forEach>
 			 </tr>
 	    	</table>

@@ -30,6 +30,12 @@ public interface RecipeService {
 
 	Recipe findRecipeById(String r_id) throws Exception;
 
+	PageModel findRecipeByPage(int curNum) throws Exception;
+
+	void delRecipe(String r_id)throws Exception;
+
+	void editRecipe(Recipe recipe)throws Exception;
+
 
 
 }

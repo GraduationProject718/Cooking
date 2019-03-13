@@ -14,4 +14,6 @@ public interface VideosDao {
 
 	List<Videos> getVidesByUId(String u_id)  throws Exception;
 
+	void delVideos(String v_id) throws Exception;
+
 }

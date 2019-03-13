@@ -14,4 +14,14 @@ public interface ArticleDao {
 
 	List<Article> getArticleByUId(String u_id) throws Exception;
 
+	int findTotalRecordsByType(String a_type) throws Exception;
+
+	List<Article> getList(String a_type, int startIndex, int pageSize) throws Exception;
+
+	void delArticle(String a_id) throws Exception;
+
+	Article editArticleById(String a_id) throws Exception;
+
+	void editArticle(Article article) throws Exception;
+
 }
