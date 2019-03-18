@@ -43,10 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<c:forEach items="${page.list}" var="a" varStatus="status">
   	<tr class="articleDiv">
   		<td>
-			<img src="${pageContext.request.contextPath}/${a.a_img }">
+			<a href="ArticleServlet?method=findArticleById&a_id=${a.a_id }"><img src="${pageContext.request.contextPath}/${a.a_img }"></a>
 		</td>
 		<td class="article" valign="top" >
-			${a.a_title }<br />
+			<a href="ArticleServlet?method=findArticleById&a_id=${a.a_id }">${a.a_title }<br /></a>
 		</td>
     </tr>
     </c:forEach>

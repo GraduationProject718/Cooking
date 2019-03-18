@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -30,6 +31,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		${recipe.r_material }<br />
   		${recipe.r_practice }<br />
   		${recipe.r_time }<br />
+  		<form action="EvaluateServlet?method=add" method="post">
+  			<input type="hidden" name="r_id" id="r_id" value="${recipe.r_id }" />
+  			<input type="hidden" name="u_id" id="u_id" value="${user.u_id}" />
+  			评论<textarea rows="10" cols="100" name="e_content" id="e_content"></textarea>
+  			<input type="submit" value="提交" onclick="return check('${user.u_id}')" />
+  		</form>
+  		评论内容：
+  		<c:forEach items="${evaluate}" var="e">
+  			${e.e_content }${e.e_time }<br /><br />
+  		</c:forEach>
+  		<script type="text/javascript">
+  			function check(u_id){
+  				if(u_id == "" || u_id == null){
+  					alert("请登录后再评论！");
+  					return false;
+  				}
+  				return true;
+  			}
+  		</script>
     <jsp:include page="footer.jsp"></jsp:include>
     </div>
   </body>

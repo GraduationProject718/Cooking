@@ -18,10 +18,13 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
 import com.cooking.domain.Article;
+import com.cooking.domain.ArticleEvaluate;
 import com.cooking.domain.PageModel;
 import com.cooking.domain.RecipeBaseDict;
+import com.cooking.service.ArticleEvaluateService;
 import com.cooking.service.ArticleService;
 import com.cooking.service.RecipeBaseDictService;
+import com.cooking.service.imp.ArticleEvaluateServiceImp;
 import com.cooking.service.imp.ArticleServiceImp;
 import com.cooking.service.imp.RecipeBaseDictServiceImp;
 import com.cooking.utils.UUIDUtils;
@@ -101,6 +104,16 @@ public class ArticleServlet extends BaseServlet {
 		}else {
 			return "/administrator/news/listArticle.jsp";
 		}
+	}
+	public String findArticleById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String a_id = request.getParameter("a_id");
+		Article article = aService.findArticleById(a_id);
+		request.setAttribute("article", article);
+		
+		ArticleEvaluateService articleEvaluateService = new ArticleEvaluateServiceImp();
+		List<ArticleEvaluate> articleEvaluate = articleEvaluateService.findArticleEvaluateById(a_id);
+		request.setAttribute("articleEvaluate", articleEvaluate);
+		return "articleView.jsp";
 	}
 	
 	public String editArticleById(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -37,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"评论管理",
 							"menus":[
-									{"menuname":"评论管理","icon":"icon-nav","url":"demo.html"},
+									{"menuname":"食谱评论管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/EvaluateServlet?method=findAllByAdmin&num=1"},
+									{"menuname":"文章评论管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleEvaluateServlet?method=findAllByAdmin&num=1"}
 								]
 						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
 							"menus":[{"menuname":"添加视频","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},

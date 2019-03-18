@@ -55,6 +55,16 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>com.cooking.servlet.IndexServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>EvaluateServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.EvaluateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ArticleEvaluateServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.ArticleEvaluateServlet</servlet-class>
+  </servlet>
+
+
 
 
   <servlet-mapping>
@@ -80,5 +90,13 @@
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/IndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EvaluateServlet</servlet-name>
+    <url-pattern>/EvaluateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ArticleEvaluateServlet</servlet-name>
+    <url-pattern>/ArticleEvaluateServlet</url-pattern>
   </servlet-mapping>
 </web-app>

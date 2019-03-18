@@ -18,11 +18,14 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
 
+import com.cooking.domain.Evaluate;
 import com.cooking.domain.PageModel;
 import com.cooking.domain.Recipe;
 import com.cooking.domain.RecipeBaseDict;
+import com.cooking.service.EvaluateService;
 import com.cooking.service.RecipeBaseDictService;
 import com.cooking.service.RecipeService;
+import com.cooking.service.imp.EvaluateServiceImp;
 import com.cooking.service.imp.RecipeBaseDictServiceImp;
 import com.cooking.service.imp.RecipeServiceImp;
 import com.cooking.utils.UUIDUtils;
@@ -66,6 +69,9 @@ public class RecipeServlet extends BaseServlet {
 		String r_id = request.getParameter("r_id");
 		Recipe recipe = rService.findRecipeById(r_id);
 		request.setAttribute("recipe", recipe);
+		EvaluateService evaluateService = new EvaluateServiceImp();
+		List<Evaluate> evaluate = evaluateService.findEvaluateByRId(r_id);
+		request.setAttribute("evaluate", evaluate);
 		return "recipeView.jsp";
 	}
 	public String getRecipeByRBDId(HttpServletRequest request, HttpServletResponse response) throws Exception {

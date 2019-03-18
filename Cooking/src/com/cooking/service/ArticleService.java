@@ -21,4 +21,6 @@ public interface ArticleService {
 
 	void editArticle(Article article) throws Exception;
 
+	Article findArticleById(String a_id) throws Exception;
+
 }

@@ -47,12 +47,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  		<li class="layui-nav-item"><a href="UserServlet?method=addUserDate&u_id=${user.u_id}">个人中心</a></li>
 		  		<li class="layui-nav-item">
 		    		<a href="user.jsp"><img src="${pageContext.request.contextPath}/${user.u_img}" class="layui-nav-img"> ${user.u_nickname }</a>
-		    			<!-- <dl class="layui-nav-child">
-		      				<dd><a href="RecipeServlet?method=addRecipePage">发布菜谱</a></dd>
+		    			<dl class="layui-nav-child">
+		      				<!-- <dd><a href="RecipeServlet?method=addRecipePage">发布菜谱</a></dd>
 		      				<dd><a href="ArticleServlet?method=addArticlePage">发布文章</a></dd>
-		      				<dd><a href="VideosServlet?method=addVideosPage">发布视频</a></dd>
+		      				<dd><a href="VideosServlet?method=addVideosPage">发布视频</a></dd> -->
 		      				<dd><a href="UserServlet?method=exit">退出</a></dd>
-		    			</dl> -->
+		    			</dl>
 		  		</li>
 			</ul>
 	   	</div>

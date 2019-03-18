@@ -23,6 +23,14 @@ public class ArticleDaoImp implements ArticleDao {
 
 	
 	@Override
+	public Article findArticleById(String a_id) throws Exception {
+		String sql = "select * from article where a_id=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanHandler<Article>(Article.class),a_id);
+	}
+
+
+	@Override
 	public void editArticle(Article article) throws Exception {
 		String sql="UPDATE article SET a_title=?, a_content=? ,a_time=?, a_img=?, a_UId=?, a_type=? WHERE a_id=?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());

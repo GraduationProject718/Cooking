@@ -22,6 +22,11 @@ public class ArticleServiceImp implements ArticleService {
 	}
 	
 	@Override
+	public Article findArticleById(String a_id) throws Exception {
+		return aDao.findArticleById(a_id);
+	}
+
+	@Override
 	public void editArticle(Article article) throws Exception {
 		aDao.editArticle(article);
 	}
