@@ -37,6 +37,10 @@ public interface RecipeDao {
 
 	void editRecipe(Recipe recipe) throws Exception;
 
+	int findTotalRecordsBySearch(String searchName) throws Exception;
+
+	List<Recipe> searchRecipe(String searchName, int startIndex, int pageSize) throws Exception;
+
 	
 
 }

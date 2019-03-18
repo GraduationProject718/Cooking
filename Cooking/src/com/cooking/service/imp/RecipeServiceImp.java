@@ -42,6 +42,18 @@ public class RecipeServiceImp implements RecipeService {
 		return pm;	
 	}
 
+	
+	
+	@Override
+	public PageModel searchRecipe(String searchName, int curNum) throws Exception {
+		int totalRecords =rDao.findTotalRecordsBySearch(searchName);
+		PageModel pm = new PageModel(curNum,totalRecords,6);
+		List<Recipe> list = rDao.searchRecipe(searchName,pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("RecipeServlet?method=searchRecipe");
+		return pm;	
+	}
+
 	@Override
 	public PageModel getRecipeByRBDId(int curNum, String rbd_id) throws Exception {
 		int totalRecords =rDao.findTotalRecords(rbd_id);

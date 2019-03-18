@@ -41,6 +41,14 @@ public class RecipeDaoImp implements RecipeDao {
 	}
 
 	@Override
+	public int findTotalRecordsBySearch(String searchName) throws Exception {
+		String sql = "select count(*) from recipe where r_name=? like '%\\%%'";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(),searchName);
+		return num.intValue();
+	}
+
+	@Override
 	public int findTotalRecordsByPage() throws Exception {
 		String sql = "select count(*) from recipe";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
@@ -53,6 +61,14 @@ public class RecipeDaoImp implements RecipeDao {
 		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit ?,?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),rbd_id,startIndex,pageSize);
+	}
+
+	
+	@Override
+	public List<Recipe> searchRecipe(String searchName, int startIndex, int pageSize) throws Exception {
+		String sql = "select * from recipe where r_name=? like '%\\%%' order by r_time desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),searchName,startIndex,pageSize);
 	}
 
 	@Override

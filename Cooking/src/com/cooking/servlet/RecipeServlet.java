@@ -58,6 +58,13 @@ public class RecipeServlet extends BaseServlet {
 		request.setAttribute("page", pm);
 		return "/administrator/recipe/listRecipe.jsp";
 	}
+	public String searchRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		String searchName = request.getParameter("searchName");
+		PageModel pm = rService.searchRecipe(searchName,curNum);
+		request.setAttribute("page", pm);
+		return "searchRecipe.jsp";
+	}
 	public String addRecipePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		RecipeBaseDictService rbdService = new RecipeBaseDictServiceImp();
 		List<RecipeBaseDict> rbd = rbdService.getRBDAll();

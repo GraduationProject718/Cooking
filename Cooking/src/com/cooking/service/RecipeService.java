@@ -36,6 +36,6 @@ public interface RecipeService {
 
 	void editRecipe(Recipe recipe)throws Exception;
 
-
+	PageModel searchRecipe(String searchName, int curNum) throws Exception;
 
 }
