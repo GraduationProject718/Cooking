@@ -43,6 +43,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div><img src="images/5.jpg"></div>
 	  </div>
 	</div>
+	
+	<div style="width:27%;height:500px;border:1px solid black;margin-top:-500px;margin-left:58%">
+		新闻公告<br />
+		<c:forEach items="${gonggao }" var="gg">
+			<a href="ArticleServlet?method=findArticleById&a_id=${gg.a_id }">${gg.a_title }</a><br />
+		</c:forEach>
+	</div>
+	
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 	<script>
 	layui.use('carousel', function(){
@@ -50,14 +58,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  //建造实例
 	  carousel.render({
 	    elem: '#test1'
-	    ,width: '85%' //设置容器宽度
+	    ,width: '56%' //设置容器宽度
 	    ,height:'500px' // 设置容器高度
 	    ,arrow: 'always' //始终显示箭头
 	    //,anim: 'updown' //切换动画方式
 	  });
 	});
 	</script> 
-		
+	
+	
+	
 	<!--推荐/热门-->
 	<div class="layui-tab">
 	  <ul class="layui-tab-title">
@@ -102,6 +112,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="layui-tab">
 	  <ul class="layui-tab-title">
 	    <li class="layui-this">中餐</li>
+	    <li>西餐</li>
+	    <li>饮品</li>
+	    <li>甜点</li>
 	  </ul>
 	  <div class="layui-tab-content">
 	    <div class="layui-tab-item layui-show">
@@ -122,17 +135,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
     	</table>
 		</div>
-	  </div>
-	</div>
-	 
 		
-	<!--西餐--> 
-	<div class="layui-tab">
-	  <ul class="layui-tab-title">
-	    <li class="layui-this">西餐</li>
-	  </ul>
-	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">
+		<div class="layui-tab-item">
 			<table>
 		    <tr>
 			<c:forEach items="${xican}" var="r" varStatus="status">
@@ -142,25 +146,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </c:forEach>
 			</tr>
 			<tr>
-			<c:forEach items="${zhongcan}" var="r" varStatus="status">
+			<c:forEach items="${xican}" var="r" varStatus="status">
 				<c:if test="${status.count >= 4 }">
 					<td><a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}"><img class="recipeImg" src="${pageContext.request.contextPath}/${r.r_img }"><br><center>${r.r_name }</center><br /></a></td>
 			 	</c:if>
 			 </c:forEach>
 			</tr>
 	    	</table>
-			 
 		</div>
-	  </div>
-	</div>
 		
-	<!--饮品-->
-	<div class="layui-tab">
-	  <ul class="layui-tab-title">
-	    <li class="layui-this">饮品</li>
-	  </ul>
-	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">
+		<div class="layui-tab-item">
 			 <table>
 		    <tr>
 			<c:forEach items="${yinpin}" var="r" varStatus="status">
@@ -169,16 +164,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </tr>
 	    	</table>
 		</div>
-	  </div>
-	</div>
-	
-	<!-- 甜点 -->
-	<div class="layui-tab">
-	  <ul class="layui-tab-title">
-	    <li class="layui-this">甜点</li>
-	  </ul>
-	  <div class="layui-tab-content">
-	    <div class="layui-tab-item layui-show">
+		
+		<div class="layui-tab-item">
 			  <table>
 		    <tr>
 			<c:forEach items="${tiandian}" var="r" varStatus="status">
@@ -187,8 +174,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </tr>
 	    	</table>
 		</div>
+		
 	  </div>
 	</div>
+	
 	<!--footer-->
 	<jsp:include page="footer.jsp"></jsp:include>
 	</div>

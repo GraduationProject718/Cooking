@@ -8,9 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cooking.domain.Article;
 import com.cooking.domain.Recipe;
 import com.cooking.domain.RecipeBaseDict;
+import com.cooking.service.ArticleService;
 import com.cooking.service.RecipeService;
+import com.cooking.service.imp.ArticleServiceImp;
 import com.cooking.service.imp.RecipeServiceImp;
 
 public class IndexServlet extends BaseServlet {
@@ -30,6 +33,9 @@ public class IndexServlet extends BaseServlet {
 		request.setAttribute("zhongcan", zhongcan);
 		List<Recipe> xican = rService.getXiCan();
 		request.setAttribute("xican", xican);
+		ArticleService aService = new ArticleServiceImp();
+		List<Article> gonggao = aService.getGongGao();
+		request.setAttribute("gonggao", gonggao);
 		return "index.jsp";
 	}
 }

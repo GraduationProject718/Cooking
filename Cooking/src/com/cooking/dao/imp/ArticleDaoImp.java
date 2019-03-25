@@ -14,6 +14,14 @@ import com.cooking.utils.JDBCUtils;
 public class ArticleDaoImp implements ArticleDao {
 
 	@Override
+	public List<Article> getGongGao() throws Exception {
+		String sql = "select * from article where a_type=? order by a_time desc limit 0,8";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Article>(Article.class),"news");
+	}
+
+
+	@Override
 	public void addArticle(Article article) throws Exception {
 		String sql = "insert into article values(?,?,?,?,?,?,?)";
 		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());

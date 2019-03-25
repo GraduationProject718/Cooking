@@ -15,6 +15,13 @@ import com.cooking.utils.JDBCUtils;
 
 public class ArticleServiceImp implements ArticleService {
 	ArticleDao aDao = new ArticleDaoImp();
+	
+	
+	@Override
+	public List<Article> getGongGao() throws Exception {
+		return aDao.getGongGao();
+	}
+
 	@Override
 	public void addArticle(Article article) throws Exception {
 		aDao.addArticle(article);

@@ -26,4 +26,6 @@ public interface ArticleDao {
 
 	Article findArticleById(String a_id) throws Exception;
 
+	List<Article> getGongGao() throws Exception;
+
 }
