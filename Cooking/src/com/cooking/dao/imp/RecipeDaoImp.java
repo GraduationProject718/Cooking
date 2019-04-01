@@ -89,7 +89,7 @@ public class RecipeDaoImp implements RecipeDao {
 
 	@Override
 	public List<Recipe> getYinPin() throws Exception {
-		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit 0,6";
+		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),"3");
 
@@ -97,42 +97,42 @@ public class RecipeDaoImp implements RecipeDao {
 
 	@Override
 	public List<Recipe> getTianDian() throws Exception {
-		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit 0,6";
+		String sql = "select * from recipe where r_RBDId=? order by r_time desc limit 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),"4");
 	}
 
 	@Override
 	public List<Recipe> getReMen() throws Exception {
-		String sql = "select * from recipe order by r_click desc limit 0,3";
+		String sql = "select * from recipe order by r_click desc limit 0,4";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
 
 	@Override
 	public List<Recipe> getZuiXin() throws Exception {
-		String sql = "select * from recipe order by r_time desc limit 0,3";
+		String sql = "select * from recipe order by r_time desc limit 0,4";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
 
 	@Override
 	public List<Recipe> getTuiJian() throws Exception {
-		String sql = "select * from recipe order by r_id desc limit 0,3";
+		String sql = "select * from recipe order by r_id desc limit 0,4";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
 	}
 
 	@Override
 	public List<Recipe> getZhongCan() throws Exception {
-		String sql = "select * from recipe where r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? limit 0,6";
+		String sql = "select * from recipe where r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? limit 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),"5","6","7","8","9","10","11","12");
 	}
 
 	@Override
 	public List<Recipe> getXiCan() throws Exception {
-		String sql = "select * from recipe where r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? limit 0,6";
+		String sql = "select * from recipe where r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? or r_RBDId=? limit 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),"13","14","15","16","17");
 	}

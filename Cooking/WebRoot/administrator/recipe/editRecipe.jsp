@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<div class="container">
    	<!-- start -->
-   	<div style="background-image: url('images/bg.jpg');background-size: 100%;width:85%;">
+   	<div style="width:85%;">
    	<form class="layui-form" action="RecipeServlet?method=editRecipe" method="post" enctype="multipart/form-data">
 		  <div class="layui-form-item">
 		    <label class="layui-form-label"><b>菜名</b></label>

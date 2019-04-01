@@ -70,13 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 	<div class="layui-form layui-form-pane">
 	<div class="layui-form-item">
-	<table>
-		<tr>
-			<td>
-				<a href="${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage"><button class="layui-btn layui-btn-normal">发布文章</button></a>
-			</td>
-		</tr>
-	</table>
+	
 	<table class="layui-table">
 	  <colgroup>
 	  	<col width="50">
