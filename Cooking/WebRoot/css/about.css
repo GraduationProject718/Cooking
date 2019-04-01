@@ -371,10 +371,9 @@ li .in_menu_1{
 }
 
 .food{
-	margin-top:200px;
 	margin-left:auto;
 	margin-right:auto;
-	width:1200px;
+	width:1300px;
 }
 
 .pro a{
@@ -385,6 +384,7 @@ li .in_menu_1{
 	float:left;
 	margin-right:8px;
 	position:relative;
+	border:1px solid black;
 }
 
 .pro .no_margin{

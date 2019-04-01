@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="food">
 	<div class="pro">
 	<c:forEach items="${page.list}" var="r" varStatus="status">
-		 <a class="no_margin" href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}" >
+		 <a href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}" >
         	<div class="ss"><img src="${pageContext.request.contextPath}/${r.r_img }" ></div>
             <div class="black"></div>
             <div class="des">${r.r_name }</div>
