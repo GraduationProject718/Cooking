@@ -16,6 +16,14 @@ import com.cooking.utils.JDBCUtils;
 
 public class RecipeDaoImp implements RecipeDao {
 
+	
+	@Override
+	public List<Recipe> getRecipeByUser() throws Exception {
+		String sql = "select * from recipe";
+		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class));
+	}
+
 	@Override
 	public void addRecipe(Recipe recipe) throws Exception {
 		String sql = "insert into recipe values(?,?,?,?,?,?,?,?,?,?)";

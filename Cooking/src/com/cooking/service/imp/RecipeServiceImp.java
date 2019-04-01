@@ -15,6 +15,13 @@ import com.cooking.utils.JDBCUtils;
 
 public class RecipeServiceImp implements RecipeService {
 	RecipeDao rDao = new RecipeDaoImp();
+	
+	
+	@Override
+	public List<Recipe> getRecipeByUser() throws Exception {
+		return rDao.getRecipeByUser();
+	}
+
 	@Override
 	public void addRecipe(Recipe recipe) throws Exception {
 		rDao.addRecipe(recipe);

@@ -63,6 +63,11 @@
     <servlet-name>ArticleEvaluateServlet</servlet-name>
     <servlet-class>com.cooking.servlet.ArticleEvaluateServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ShouCangServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.ShouCangServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -98,5 +103,9 @@
   <servlet-mapping>
     <servlet-name>ArticleEvaluateServlet</servlet-name>
     <url-pattern>/ArticleEvaluateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShouCangServlet</servlet-name>
+    <url-pattern>/ShouCangServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -41,6 +41,8 @@ public interface RecipeDao {
 
 	List<Recipe> searchRecipe(String searchName, int startIndex, int pageSize) throws Exception;
 
+	List<Recipe> getRecipeByUser()throws Exception;
+
 	
 
 }

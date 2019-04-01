@@ -38,9 +38,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.layui-table td, .layui-table th{
 			padding:9px;
 		}
+		.layui-table thead tr{
+			background-color:#1E9FFF;
+		}
 		.layui-table{
-			width:95%;
-			margin-left: 20px;
+			width:1000px;margin:0 auto;
 		}
 		.layui-input{
 			width:200px;
@@ -70,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table class="layui-table">
 	  <colgroup>
 	  	<col width="50">
-	  	<col width="50">
+	  	<col width="100">
 	    <col>
 	    <col width="100">
 	    <col width="150">

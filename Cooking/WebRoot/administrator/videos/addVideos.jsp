@@ -25,15 +25,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="layui/layui.all.js"></script>
 
+	<style type="text/css">
+		td{
+			border:2px solid #1E9FFF;
+		}
+		.layui-btn{
+			background-color: #fff;
+			color:#555;
+			border:1px solid #C9C9C9;
+		}
+	</style>
+	
   </head>
   
   <body>
   	<div class="container">
-   	<div style="background-image: url('images/bg.jpg');background-size: 100%;width:85%;height:70%;padding:50px;">
+   	<div style="width:85%;height:70%;padding:50px;">
    	<form class="layui-form" action="VideosServlet?method=addVideos" method="post" enctype="multipart/form-data">
+   		<table>
+   			<tr>
+   				<td><label class="layui-form-label" style="width:100px;"><b>视频名称</b></label></td>
+   				<td>
+   					<input type="text" style="width:300px;" name="v_name"  id="v_name" required  lay-verify="required" placeholder="请输入视频名称" autocomplete="off" class="layui-input">
+   				</td>
+   			</tr>
+   			<tr>
+   				<td><label class="layui-form-label" style="width:100px;margin:20px;"><b>文件选择</b></label></td>
+   				<td>
+   					<input type="file" name="v_url" id="v_url" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+   				</td>
+   			</tr>
+   			<tr>
+   				<td></td>
+   				<td>
+   				<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+	     		<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+	     		</td>
+   			</tr>
+   		</table>
 	  	<%-- <input type="hidden" name="v_UId" id="v_UId" value="${user.u_id }"> --%>
 	  	<input type="hidden" name="v_UId" id="v_UId" value="0" />
-	  <div class="layui-form-item">
+	  <!-- <div class="layui-form-item">
 	    <label class="layui-form-label" style="width:100px;"><b>视频名称</b></label>
 	    <div class="layui-input-block">
 	      <input type="text" style="width:300px;" name="v_name"  id="v_name" required  lay-verify="required" placeholder="请输入视频名称" autocomplete="off" class="layui-input">
@@ -51,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
 	      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 	    </div>
-	  </div>
+	  </div> -->
 	</form>
 	 </div>
    	</div>

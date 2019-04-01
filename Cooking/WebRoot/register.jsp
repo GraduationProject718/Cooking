@@ -12,28 +12,31 @@
 
 <title>用户注册</title>
 
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
 
-<link type="text/css" rel="stylesheet" href="css/user.css">
-<link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
-<script type="text/javascript" src="layui/layui.all.js"></script>
-
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/img_ver.js"></script>
-
+	<link type="text/css" rel="stylesheet" href="css/user.css">
+	
+	<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+	
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<script src="js/img_ver.js"></script>
+	
+	<link href="css/about.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="Javascript/jquery.js"></script>
+	
+	<style type="text/css">
+		.footer{
+			margin-top: 0px;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<jsp:include page="head.jsp"></jsp:include>
-		<div style="background-image: url('images/bg.jpg'); width:85%;background-size: 100%;" >
-			<div class="logo-box">
-				<div class="login" style="">
+	<jsp:include page="header2.jsp"></jsp:include>
+		<div style="background-image: url('images/register.jpg');background-repeat: no-repeat;background-size: 100%;height:750px;" >
+			<div class="logo-box" style="margin:auto 200;">
+				<div class="login" >
 					<div class="bxs-row" style="text-align:center;">
 						<span class="tips" style="font-size:30px;"><b>用户注册</b></span>
 					</div>
@@ -93,8 +96,9 @@
 				</div>
 			</div>
 			</div>
-		<jsp:include page="footer.jsp"></jsp:include>
-	</div>
+			<jsp:include page="footer2.jsp"></jsp:include>
+			
+			
 	<script>
 	      imgVer({
 	         el:'$("#imgVer")',

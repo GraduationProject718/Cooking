@@ -38,4 +38,6 @@ public interface RecipeService {
 
 	PageModel searchRecipe(String searchName, int curNum) throws Exception;
 
+	List<Recipe> getRecipeByUser() throws Exception;
+
 }

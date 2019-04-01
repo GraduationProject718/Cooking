@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <script type="text/javascript">
 	 var _menus = {"menus":[{"menuid":"8","icon":"icon-sys","menuname":"用户管理",
-							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"userManagement.jsp"},
+							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/UserServlet?method=findUserByPage&num=1"},
 								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"食谱管理",
 							"menus":[{"menuname":"添加食谱","icon":"icon-nav","url":"${pageContext.request.contextPath}/RecipeServlet?method=addRecipePage"},
