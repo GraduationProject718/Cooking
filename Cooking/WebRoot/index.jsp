@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-
+<center>
  <div class="banner">
   	<img src="images/2.jpg">
     <img src="images/3.jpg">
@@ -35,12 +35,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<div class="zuo"></div>
        <div class="you"></div>
        <div class="clearfix"></div>
-       
     </div>
- 
+ </center>
  	<!-- 推荐 热门 最新 -->
     <div class="food">
-    	<div class="title_1"><div class="kk"><h1>特色美食</h1></div></div>
+    	
         <div class="contont">
         	<ul>
             	<li id="red">推荐</li>
@@ -83,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!-- 中餐 西餐 饮品 甜点 -->
        <div class="food">
-    	<div class="title_1"><div class="kk"><h1>特色美食</h1></div></div>
+    	
         <div class="contont2">
         	<ul>
         		<li id="red">中餐</li>
@@ -136,36 +135,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     
-    <div class="news">
-    	<div class="title_1"><div class="kk"><h1>新闻公告</h1></div></div>
+    <div class="news" style="background:url(images/food_background.png) no-repeat bottom;">
         <div class="news_contont">
+        <div class="contont3">
+	        	<ul><li id="red">新闻公告</li></ul>
+	    	</div>
+	    	<br /><br /><br />
         	<c:forEach items="${gonggao }" var="gg" varStatus="status">
         		<c:if test="${status.count < 5 }">
         			<div class="box1" onClick="link('${gg.a_id }')" >
 		            	<a href="ArticleServlet?method=findArticleById&a_id=${gg.a_id }"><img src="${pageContext.request.contextPath}/${gg.a_img }"></a>
 		                <div class="xinwen">
 		                	<span>${gg.a_time }</span>
-		                	<a href="news_details.html">${gg.a_title }</a>
+		                	<a href="ArticleServlet?method=findArticleById&a_id=${gg.a_id }">${gg.a_title }</a>
 		                    <%-- <div class="small_font">${gg.a_content }...</div> --%>
 		                </div>
 		                <div class="clearfix"></div>
 		            </div>
-        		</c:if>
-        		
-        		<%-- <c:if test="${status.count >= 5 }">
-        			<div class="box2" onClick="link('${gg.a_id }')" >
-		            	<a href="ArticleServlet?method=findArticleById&a_id=${gg.a_id }"><img src="${pageContext.request.contextPath}/${gg.a_img }"></a>
-		                <div class="xinwen">
-		                	<span>${gg.a_time }</span>
-		                	<a href="news_details.html">${gg.a_title }</a>
-		                    <div class="small_font">${gg.a_content }...</div>
-		                </div>
-		                <div class="clearfix"></div>
-		            </div>
-        		</c:if> --%>
+        		</c:if>	
 			</c:forEach>
             <div class="clearfix"></div>
         </div>
+       
     </div>
     
     <jsp:include page="footer2.jsp"></jsp:include>

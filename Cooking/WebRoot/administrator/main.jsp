@@ -26,23 +26,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									{"menuname":"食谱查看","icon":"icon-add","url":"${pageContext.request.contextPath}/RecipeServlet?method=findRecipeByPage&num=1"},
 									
 								]
-						},{"menuid":"28","icon":"icon-sys","menuname":"健康信息管理",
+						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
+							"menus":[{"menuname":"添加视频","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},
+									{"menuname":"视频查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=getVideosByAdmin&num=1"},
+								]
+						}
+						,{"menuid":"28","icon":"icon-sys","menuname":"健康信息管理",
 							"menus":[{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=health"},
 									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=health"},
-								]
-						},{"menuid":"28","icon":"icon-sys","menuname":"新闻管理",
-							"menus":[
-									{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
-									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"评论管理",
 							"menus":[
 									{"menuname":"食谱评论管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/EvaluateServlet?method=findAllByAdmin&num=1"},
 									{"menuname":"文章评论管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleEvaluateServlet?method=findAllByAdmin&num=1"}
 								]
-						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
-							"menus":[{"menuname":"添加视频","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},
-									{"menuname":"视频查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=getVideosByAdmin&num=1"},
+						},{"menuid":"28","icon":"icon-sys","menuname":"新闻管理",
+							"menus":[
+									{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
+									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
 								]
 						}
 				]};

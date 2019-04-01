@@ -46,8 +46,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </li>
         <li class="dw"><a style="background:none;padding-right:0;" href="RecipeServlet?method=getRecipeByRBDId&rbd_id=3&num=1">饮品</a></li>
        	<li class="dw"><a style="background:none;padding-right:0;" href="RecipeServlet?method=getRecipeByRBDId&rbd_id=4&num=1">甜点</a></li>
-       	<li class="dw"><a style="background:none;padding-right:0;" href="ArticleServlet?method=getArticleBytype&type=health&num=1">健康与养生</a></li>
        	<li class="dw"><a style="background:none;padding-right:0;" href="VideosServlet?method=getVideosByMenu&num=1">视频中心</a></li>
+       	<li class="dw"><a style="background:none;padding-right:0;" href="ArticleServlet?method=getArticleBytype&type=health&num=1">健康与养生</a></li>
        	<li class="dw"><a style="background:none;padding-right:0;" href="ArticleServlet?method=getArticleBytype&type=news&num=1">新闻公告</a></li>
         <div class="clearfix"></div>
     </ul>

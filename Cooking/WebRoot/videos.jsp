@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="Javascript/jquery.js"></script>
 	<style type="text/css">
 		.videos{
-			width:410px;height:250px;margin-top:10px;margin-right:20px;
+			width:380px;height:250px;margin-top:10px;margin-right:20px;
 		}
 	</style>
   </head>

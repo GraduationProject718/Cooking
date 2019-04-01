@@ -33,9 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="location">
 	当前位置：首页 >   <span>文章浏览</span>
 </div>
-<div class="tab">
-	<div class="xian_1"></div>
-</div>
+
     <div class="news_box">
     	<c:forEach items="${page.list}" var="a" varStatus="status">
     		<div class="news" onClick="link('${a.a_id }')" >

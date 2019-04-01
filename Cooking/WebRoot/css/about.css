@@ -19,12 +19,12 @@ body{
 }
 
 .top{
-	width:100%;
+	width:1200px;
 	line-height:30px;
-	background-color:#000;	
-	color:#fff;
-	font-size:14px;
+	color:black;
+	font-size:18px;
 	padding-top:10px;
+	margin:0 auto;
 }
 
 .header{
@@ -80,6 +80,7 @@ body{
 	display:block;
 	padding-right:15px;
 	background:url(../images/about_03.jpg) no-repeat center right;
+	font-size: 20px;
 }
 	
 .dw a:hover{
@@ -125,10 +126,11 @@ li .in_menu_1{
 }
 
 .banner{
-	width:100%;
+	width:1200px;
 	position:relative;
 	overflow:hidden;
 	height:400px;
+	margin:0 auto;
 }
 
 .banner > img{
@@ -160,7 +162,7 @@ li .in_menu_1{
 	background:url(../images/about_05.jpg) no-repeat center left;
 	color:#333;
 	font-size:16px;
-	margin:60px auto;
+	margin:20px auto;
 	width:1200px;
 }
 
@@ -273,7 +275,7 @@ li .in_menu_1{
 }
 
 .news_box{
-	margin-top:180px;
+	margin-top:40px;
 	width:1200px;
 	margin-left:auto;
 	margin-right:auto;
@@ -373,12 +375,12 @@ li .in_menu_1{
 .food{
 	margin-left:auto;
 	margin-right:auto;
-	width:1300px;
+	width:1200px;
 }
 
 .pro a{
 	display:block;
-	width:294px;
+	width:289px;
 	margin-top:4px;
 	margin-bottom:4px;
 	float:left;
@@ -392,7 +394,7 @@ li .in_menu_1{
 }
 
 a .ss{
-	width:294px;
+	width:289px;
 	height:260px;
 	overflow:hidden;
 }
@@ -417,7 +419,7 @@ a .ss{
 .black{
 	width:294px;
 	height:260px;
-	background:url(../images/black.png) repeat;
+	/* background:url(../images/black.png) repeat; */
 	position:absolute;
 	top:0;
 	left:0;

@@ -39,37 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<%-- <div class="container">
-  	<jsp:include page="head.jsp"></jsp:include>
-  		<img style="width:330px;height:200px;margin-right:20px;" src="${pageContext.request.contextPath}/${recipe.r_img }">
-  		<br>
-  		${recipe.r_name }<br />
-  		${recipe.r_information }<br />
-  		${recipe.r_material }<br />
-  		${recipe.r_practice }<br />
-  		${recipe.r_time }<br />
-  		<form action="EvaluateServlet?method=add" method="post">
-  			<input type="hidden" name="r_id" id="r_id" value="${recipe.r_id }" />
-  			<input type="hidden" name="u_id" id="u_id" value="${user.u_id}" />
-  			评论<textarea rows="10" cols="100" name="e_content" id="e_content"></textarea>
-  			<input type="submit" value="提交" onclick="return check('${user.u_id}')" />
-  		</form>
-  		评论内容：
-  		<c:forEach items="${evaluate}" var="e">
-  			${e.e_content }${e.e_time }<br /><br />
-  		</c:forEach>
-  		<script type="text/javascript">
-  			function check(u_id){
-  				if(u_id == "" || u_id == null){
-  					alert("请登录后再评论！");
-  					return false;
-  				}
-  				return true;
-  			}
-  		</script>
-    <jsp:include page="footer.jsp"></jsp:include>
-    </div> --%>
-    
     <jsp:include page="header2.jsp"></jsp:include>
     
     <div class="banner">
@@ -100,10 +69,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<p>【做 法】 ${recipe.r_practice }</p>
         </div>
         <p>${recipe.r_information }</p>
-        <!-- <div class="link">
-        	<div class="link_1"><span>下一篇：</span><a href="">家常红烧肉</a></div>
-        	<div class="link_1"><span>上一篇：</span><a href="">凉拌三丝</a></div>
-        </div> -->
     </div>
     <div class="clearfix"></div>
 </div>

@@ -39,7 +39,7 @@ body{
 @media (min-width: 778px)
 {
 		.main{
-			height: 100vh;
+			height: 600px;
 			overflow: hidden;
 		}
 
