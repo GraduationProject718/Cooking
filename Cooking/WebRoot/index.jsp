@@ -146,13 +146,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <div class="xinwen">
 		                	<span>${gg.a_time }</span>
 		                	<a href="news_details.html">${gg.a_title }</a>
-		                    <div class="small_font">${gg.a_content }...</div>
+		                    <%-- <div class="small_font">${gg.a_content }...</div> --%>
 		                </div>
 		                <div class="clearfix"></div>
 		            </div>
         		</c:if>
         		
-        		<c:if test="${status.count >= 5 }">
+        		<%-- <c:if test="${status.count >= 5 }">
         			<div class="box2" onClick="link('${gg.a_id }')" >
 		            	<a href="ArticleServlet?method=findArticleById&a_id=${gg.a_id }"><img src="${pageContext.request.contextPath}/${gg.a_img }"></a>
 		                <div class="xinwen">
@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                </div>
 		                <div class="clearfix"></div>
 		            </div>
-        		</c:if>
+        		</c:if> --%>
 			</c:forEach>
             <div class="clearfix"></div>
         </div>
