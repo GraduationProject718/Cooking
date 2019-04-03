@@ -17,11 +17,80 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="Javascript/Carousel.js"></script>
 <link rel="stylesheet" href="layui/css/layui.css">
 <script type="text/javascript" src="layui/layui.all.js"></script>
+
+<style>
+	.more{
+		background-color:#fff;
+		border:1px #e9e9e9 solid;
+		float: right;
+		line-height:30px;
+		font-size:14px;
+		margin:0 1px;
+		cursor:pointer;
+		font-size: 20px;
+		padding-top: -20;
+		margin-top: -60px;
+		width: 100;
+	}
+	#container {
+		float:right;
+		padding-top:130px;
+		padding-right:450px;
+		
+	}
+	.bar6 input {
+		border:2px solid #c5464a;
+		border-radius:5px;
+		background:transparent;
+		top:0;
+		right:0;
+		width:200px;
+		height:30px;
+	}
+	.bar6 button {
+		background:#c5464a;
+		border-radius:0 5px 5px 0;
+		width:60px;
+		top:0;
+		right:0;
+		height:30px;
+		
+	}
+	.bar6 button:before {
+		content:"搜索";
+		font-size:13px;
+		color:#F9F0DA;
+	}
+</style>
+
+<script type="text/javascript">
+	function pageToZhongCan(){
+		location="RecipeServlet?method=getRecipeByRBDId&rbd_id=5&num=1";
+	}
+	function pageToXiCan(){
+		location="RecipeServlet?method=getRecipeByRBDId&rbd_id=13&num=1";
+	}
+	function pageToYinPin(){
+		location="RecipeServlet?method=getRecipeByRBDId&rbd_id=3&num=1";
+	}
+	function pageToTianDian(){
+		location="RecipeServlet?method=getRecipeByRBDId&rbd_id=4&num=1";
+	}
+</script>
 </head>
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-<center>
+	<div id="container">
+		<div class="search bar6">
+	        <form>
+	            <input name="cname" type="text" placeholder="请输入搜索内容" />
+	            <button type="submit"></button>
+	        </form>
+	    </div>
+	 </div>
+    
+<center style="padding-top:155px;">
  <div class="banner">
   	<img src="images/2.jpg">
     <img src="images/3.jpg">
@@ -82,7 +151,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!-- 中餐 西餐 饮品 甜点 -->
        <div class="food">
-    	
         <div class="contont2">
         	<ul>
         		<li id="red">中餐</li>
@@ -92,6 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="clearfix"></div>
         	</ul>
             <div class="pro2" >
+            <p class="more" onclick="pageToZhongCan();" >更多</p>
             	<c:forEach items="${zhongcan}" var="r" varStatus="status">
 					<a class="no_margin" href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}" >
 	               		<img src="${pageContext.request.contextPath}/${r.r_img }" />
@@ -102,6 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="clearfix"></div>
             </div>
             <div class="pro2">
+            	<p class="more" onclick="pageToXiCan();" >更多</p>
             	<c:forEach items="${xican}" var="r" varStatus="status">
             		 <a class="no_margin" href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}">
 	               		<img src="${pageContext.request.contextPath}/${r.r_img }" >
@@ -112,6 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="clearfix"></div>
             </div>
             <div class="pro2">
+            <p class="more" onclick="pageToYinPin();" >更多</p>
             	<c:forEach items="${yinpin}" var="r" varStatus="status">
             		 <a class="no_margin" href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}" >
 	               		<img src="${pageContext.request.contextPath}/${r.r_img }" >
@@ -122,6 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="clearfix"></div>
             </div>
             <div class="pro2">
+            <p class="more" onclick="pageToTianDian();" >更多</p>
             	<c:forEach items="${tiandian}" var="r" varStatus="status">
             		<a class="no_margin" href="RecipeServlet?method=findRecipeById&r_id=${r.r_id}" >
 	               		<img src="${pageContext.request.contextPath}/${r.r_img }" >

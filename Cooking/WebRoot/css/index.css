@@ -159,7 +159,7 @@ li .in_menu_1{
 
 .banner{
 	width:63%;
-	height:600px;
+	height:500px;
 	position:relative;
 	overflow:hidden;
 }
@@ -170,7 +170,7 @@ li .in_menu_1{
 	width:1600px;
 	position:relative;
 	left:50%;
-	top:50%;
+	top:42%;
 	margin-left:-600px;
 	margin-top:-200px;
 	height:100%;

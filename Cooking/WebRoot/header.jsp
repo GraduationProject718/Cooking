@@ -4,7 +4,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 	<div class="xian"></div>
 	<div class="top">
 		<div class="header">
@@ -56,5 +55,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<div class="clearfix"></div> 
     	</div>
 	</div>
-	
    
