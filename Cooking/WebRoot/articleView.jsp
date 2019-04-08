@@ -20,6 +20,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/about.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="Javascript/jquery.js"></script>
 <script type="text/javascript" src="Javascript/jq_scroll.js"></script>
+
+<style type="text/css">
+		.evaluate{
+			width:1200px;
+			padding-left:250px;
+		}
+		.evaluate textarea{
+			border:2px solid;
+		}
+	</style>
   </head>
   
   <body>
@@ -70,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="clearfix"></div>
 </div>
-  		
+  		<div class="evaluate">
   		<form action="ArticleEvaluateServlet?method=add" method="post">
  		<input type="hidden" name="a_id" id="a_id" value="${article.a_id}" />
  		<input type="hidden" name="u_id" id="u_id" value="${user.u_id}" />
@@ -81,6 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<c:forEach items="${articleEvaluate}" var="ae">
 		${ae.ae_content }${ae.ae_time }<br /><br />
 	</c:forEach>
+	</div>
  	<script type="text/javascript">
   			function check(u_id){
   				if(u_id == "" || u_id == null){
