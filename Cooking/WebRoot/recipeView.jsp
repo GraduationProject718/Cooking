@@ -35,7 +35,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			return true;
 		}
 	</script>
-	
+	<style type="text/css">
+		.evaluate{
+			width:1200px;
+			padding-left:250px;
+		}
+		.evaluate textarea{
+			border:2px solid;
+		}
+	</style>
   </head>
   
   <body>
@@ -72,6 +80,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="clearfix"></div>
 </div>
+
+		<div class="evaluate">
 		<form action="EvaluateServlet?method=add" method="post">
  			<input type="hidden" name="r_id" id="r_id" value="${recipe.r_id }" />
  			<input type="hidden" name="u_id" id="u_id" value="${user.u_id}" />
@@ -82,6 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  		<c:forEach items="${evaluate}" var="e">
  			${e.e_content }${e.e_time }<br /><br />
  		</c:forEach>
+ 		</div>
  		<script type="text/javascript">
  			function check(u_id){
  				if(u_id == "" || u_id == null){
@@ -91,6 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  				return true;
  			}
  		</script>
+ 		
      <jsp:include page="footer2.jsp"></jsp:include>
      
      

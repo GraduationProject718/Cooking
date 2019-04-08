@@ -74,7 +74,7 @@ public class RecipeDaoImp implements RecipeDao {
 	
 	@Override
 	public List<Recipe> searchRecipe(String searchName, int startIndex, int pageSize) throws Exception {
-		String sql = "select * from recipe where r_name=? like '%\\%%' order by r_time desc limit ?,?";
+		String sql = "select * from recipe where r_name=? order by r_time desc limit ?,?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Recipe>(Recipe.class),searchName,startIndex,pageSize);
 	}

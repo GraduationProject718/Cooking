@@ -83,8 +83,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<jsp:include page="header.jsp"></jsp:include>
 	<div id="container">
 		<div class="search bar6">
-	        <form>
-	            <input name="cname" type="text" placeholder="请输入搜索内容" />
+	        <form action="RecipeServlet?method=searchRecipe&num=1" method="post">
+	            <input name="searchName" type="text" placeholder="请输入搜索内容" />
 	            <button type="submit"></button>
 	        </form>
 	    </div>
