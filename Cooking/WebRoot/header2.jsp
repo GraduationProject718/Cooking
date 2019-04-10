@@ -4,6 +4,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
+<div style="left:400px;top:20px;display: block;position: absolute;"><img style="width:300px;" id="logo" src="images/Cooking.png"></div>
  <div class="top">
 	<div class="header">
     	<span class="wec"></span>

@@ -91,16 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 </div>
-<center>
-<h3>我的收藏</h3>
-<c:forEach items="${shoucang}" var="sc">
-	<c:forEach items="${userRecipe}" var="ur">
-		<c:if test="${sc.r_id == ur.r_id }">
-			<img style="width:100px;height:100px;" src="${pageContext.request.contextPath}/${ur.r_img }" >
-		</c:if>
-	</c:forEach>
-</c:forEach>
-</center>
+
 
 <div id="about_scroll" class="pages ">                      <!-- about strats here  -->
 	<div class="container main">
@@ -110,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 
 			<div class="col-md-6 right" id="about_right">
-				<a href="user.jsp" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> 返回 </a>
+				<a href="UserServlet?method=addUserDate&u_id=${user.u_id }" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> 返回 </a>
 				<div id="watermark">
 					<h2 class="page-title" text-center>修改个人资料</h2>
 				</div>
@@ -168,7 +159,7 @@ layui.use('laydate', function(){
 			</div>
 
 			<div class="col-md-6" id="work_right">
-				<a href="user.jsp" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> 返回 </a>
+				<a href="UserServlet?method=addUserDate&u_id=${user.u_id }" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i> 返回 </a>
 				<div id="watermark">
 					<h2 class="page-title" text-center>更换密码</h2>
 				</div>
@@ -208,7 +199,7 @@ layui.use('laydate', function(){
 			</div>
 
 			<div class="col-md-6 right" id="contact_right">
-				<a href="user.jsp" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i>返回 </a>
+				<a href="UserServlet?method=addUserDate&u_id=${user.u_id }" class="btn btn-rabbit back"> <i class="fa fa-angle-left" aria-hidden="true"></i>返回 </a>
 				<div id="watermark">
 					<h2 class="page-title" text-center>更换头像</h2>
 				</div>
@@ -229,7 +220,16 @@ layui.use('laydate', function(){
 </div>                                                              <!-- Contact ends here -->
 
 
-
+<center>
+<h3>我的收藏</h3>
+<c:forEach items="${shoucang}" var="sc">
+	<c:forEach items="${userRecipe}" var="ur">
+		<c:if test="${sc.r_id == ur.r_id }">
+			<a href="RecipeServlet?method=findRecipeById&r_id=${ur.r_id}" ><img style="width:100px;height:100px;" src="${pageContext.request.contextPath}/${ur.r_img }" ></a>
+		</c:if>
+	</c:forEach>
+</c:forEach>
+</center>
 
 <script src="assets/js/jquery-3.1.0.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>

@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--     <div class="title_1"><div class="kk"><h1>新闻公告</h1></div></div> -->
 </div>
 <div class="location">
-	当前位置：首页 >   <span>视频浏览</span>
+	当前位置：首页 >   <span>视频中心</span>
 </div>
    		
    			<table style="margin: 0 auto;">

@@ -41,9 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.layui-table thead tr{
 			background-color:#1E9FFF;
 		}
-		.layui-table{
-			width:1000px;margin:0 auto;
-		}
+		
 		.layui-input{
 			width:200px;
 		}
@@ -74,13 +72,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<col width="50">
 	  	<col>
 	    <col width="150">
+	    <col width="150">
+	    <col width="150">
+	    <col width="150">
 	    <col width="100">
 	  </colgroup>
 	  <thead>
 	    <tr>
-	      <th>序号</th>		
+	      <th>序号</th>
 	      <th>账号</th>
-	      <th>姓名</th>
+	      <th>昵称</th>
+	      <th>电话</th>
+	      <th>邮箱</th>
+	      <th>生日</th>
 	      <th>删除</th>
 	    </tr> 
 	  </thead>
@@ -90,6 +94,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<td>${status.count}</td>
 			<td>${u.u_account} </td>
 			<td>${u.u_nickname } </td>
+			<td>${u.u_phone } </td>
+			<td>${u.u_email } </td>
+			<td>${u.u_birthday } </td>
 			<td>
 				<button class="layui-btn layui-btn-normal" onclick="del('${u.u_id}');" ><i class="layui-icon">&#xe640;</i></button>
 			</td>

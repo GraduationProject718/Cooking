@@ -22,18 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							"menus":[{"menuname":"用户管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/UserServlet?method=findUserByPage&num=1"},
 								]
 						},{"menuid":"1","icon":"icon-sys","menuname":"食谱管理",
-							"menus":[{"menuname":"添加食谱","icon":"icon-nav","url":"${pageContext.request.contextPath}/RecipeServlet?method=addRecipePage"},
-									{"menuname":"食谱查看","icon":"icon-add","url":"${pageContext.request.contextPath}/RecipeServlet?method=findRecipeByPage&num=1"},
+							"menus":[{"menuname":"食谱添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/RecipeServlet?method=addRecipePage"},
+									{"menuname":"食谱管理","icon":"icon-add","url":"${pageContext.request.contextPath}/RecipeServlet?method=findRecipeByPage&num=1"},
 									
 								]
 						},{"menuid":"39","icon":"icon-sys","menuname":"视频管理",
-							"menus":[{"menuname":"添加视频","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},
-									{"menuname":"视频查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=getVideosByAdmin&num=1"},
+							"menus":[{"menuname":"视频添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=addVideosPage"},
+									{"menuname":"视频管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/VideosServlet?method=getVideosByAdmin&num=1"},
 								]
 						}
 						,{"menuid":"28","icon":"icon-sys","menuname":"健康信息管理",
-							"menus":[{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=health"},
-									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=health"},
+							"menus":[{"menuname":"健康信息添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=health"},
+									{"menuname":"健康信息管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=health"},
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"评论管理",
 							"menus":[
@@ -42,8 +42,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"新闻管理",
 							"menus":[
-									{"menuname":"添加文章","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
-									{"menuname":"文章查看","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
+									{"menuname":"新闻添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
+									{"menuname":"新闻管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
+								]
+						},{"menuid":"28","icon":"icon-sys","menuname":"系统管理",
+							"menus":[
+									{"menuname":"管理员添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
+									{"menuname":"管理员管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
 								]
 						}
 				]};
@@ -137,11 +142,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
         background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
-        <span style="float:right; padding-right:20px;" class="head">欢迎 疯狂秀才 <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 16px; "><img src="images/blocks.gif" width="20" height="20" align="absmiddle" /> 我的帐本</span>
+        <span style="float:right; padding-right:20px;" class="head"> <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
+        <span style="padding-left:10px; font-size: 20px; ">烹饪技术学习网后台管理</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">By 疯狂秀才 Email:bjhxl@59ibox.cn</div>
+        <div class="footer"></div>
     </div>
     <div region="west" split="true" title="导航菜单" style="width:180px;" id="west">
 <div class="easyui-accordion" fit="true" border="false">

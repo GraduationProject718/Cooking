@@ -41,9 +41,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		.layui-table thead tr{
 			background-color:#1E9FFF;
 		}
-		.layui-table{
-			width:1000px;margin:0 auto;
-		}
 		.layui-input{
 			width:200px;
 		}

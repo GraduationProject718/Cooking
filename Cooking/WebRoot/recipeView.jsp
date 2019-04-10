@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form action="ShouCangServlet?method=add" method="post">
 			<input type="hidden" value="${recipe.r_id }" name="r_id" id="r_id" />
 			<input type="hidden" value="${user.u_id }" name="u_id" id="u_id" />
-			<input type="submit" value="收藏"  onclick="return checkLogin('${user.u_id}');" />
+			<input type="submit" style="font-size: 25px;text-align: center;margin:0 auto;width:1200px;background-color: white;color:red;" value="收藏"  onclick="return checkLogin('${user.u_id}');" />
 		</form>
         <div class="pic_del">
             <div class="pikachoose">

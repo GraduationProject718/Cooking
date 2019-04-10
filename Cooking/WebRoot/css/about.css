@@ -129,7 +129,7 @@ li .in_menu_1{
 	width:1200px;
 	position:relative;
 	overflow:hidden;
-	height:400px;
+	height:300px;
 	margin:0 auto;
 }
 
@@ -600,7 +600,7 @@ a .red{
 .news_del .main{
 	float:left;
 	margin-right:100px;
-	width:780px;
+	width:1200px;
 	text-align:justify;
 	line-height:30px;
 	color:#666;
