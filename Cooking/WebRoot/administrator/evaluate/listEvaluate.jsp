@@ -18,10 +18,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/layui/css/layui.css">
-	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
-	
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/layui/layui.all.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 	<style type="text/css">
 		body{
@@ -72,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	<col width="50">
 	  	<col>
 	    <col width="150">
-	    <col width="100">
+	    <col width="200">
 	  </colgroup>
 	  <thead>
 	    <tr>

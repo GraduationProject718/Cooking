@@ -24,7 +24,7 @@ public class EvaluateDaoImp implements EvaluateDao {
 
 	@Override
 	public List<Evaluate> findEvaluateByRId(String r_id) throws Exception {
-		String sql = "select * from evaluate where e_RId=?";
+		String sql = "select * from evaluate where e_RId=? order by e_time desc";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Evaluate>(Evaluate.class),r_id);
 	}

@@ -67,6 +67,11 @@
     <servlet-name>ShouCangServlet</servlet-name>
     <servlet-class>com.cooking.servlet.ShouCangServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.cooking.servlet.AdminServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -107,5 +112,9 @@
   <servlet-mapping>
     <servlet-name>ShouCangServlet</servlet-name>
     <url-pattern>/ShouCangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
   </servlet-mapping>
 </web-app>

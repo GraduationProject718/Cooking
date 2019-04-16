@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-	<form action="servlet/AdministratorServlet?flag=login" method="post">
+	<form action="AdminServlet?method=login" method="post">
 		<table>
 			<tr>
 				<td>账号:</td>

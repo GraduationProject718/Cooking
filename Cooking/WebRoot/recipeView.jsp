@@ -20,12 +20,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- <link rel="stylesheet" href="css/index.css"> -->
 
 	<link href="css/about.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
 	<script type="text/javascript" src="Javascript/jquery.js"></script>
 	<script type="text/javascript" src="Javascript/jquery_2.js"></script>
 	<script type="text/javascript" src="Javascript/jquery.jcarousel.min.js"></script>
 	<script type="text/javascript" src="Javascript/jquery.pikachoose.min.js"></script>
 	<script type="text/javascript" src="Javascript/jquery.touchwipe.min.js"></script>
 	<script type="text/javascript" src="Javascript/jq_scroll.js"></script>
+	
 	<script type="text/javascript">
 		function checkLogin(u_id){
 			if(u_id == "" || u_id == null){
@@ -88,9 +93,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  			评论<textarea rows="10" cols="100" name="e_content" id="e_content"></textarea>
  			<input type="submit" value="提交" onclick="return check('${user.u_id}')" />
  		</form>
- 		评论内容：
+ 		评论内容：<br />
  		<c:forEach items="${evaluate}" var="e">
- 			${e.e_content }${e.e_time }<br /><br />
+ 			${e.e_content }${e.e_time }<br /><br /><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">回复</button>
  		</c:forEach>
  		</div>
  		<script type="text/javascript">

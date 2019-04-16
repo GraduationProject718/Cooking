@@ -47,8 +47,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"系统管理",
 							"menus":[
-									{"menuname":"管理员添加","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=addArticlePage&flag=news"},
-									{"menuname":"管理员管理","icon":"icon-nav","url":"${pageContext.request.contextPath}/ArticleServlet?method=findArticleByPage&num=1&type=news"},
+									{"menuname":"修改密码","icon":"icon-nav","url":"${pageContext.request.contextPath}/administrator/admin/edit.jsp"},
+									{"menuname":"安全退出","icon":"icon-nav","url":"${pageContext.request.contextPath}/AdminServlet?method=adminExit"},
 								]
 						}
 				]};
